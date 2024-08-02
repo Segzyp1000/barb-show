@@ -6,6 +6,7 @@ import Sidebar from "./component/Sidebar";
 // database
 import products from "./db/data";
 import Card from "./component/Card";
+import Footer from "./component/Footer";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -80,6 +81,7 @@ function App() {
           <Products result={result} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
