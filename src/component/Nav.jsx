@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../assets/Logo.png";
 import { FaShoppingCart } from "react-icons/fa";
 
-function Nav() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+function Nav({ handleinputChange }) {
   return (
     <>
       <div className="text-navColor p-3 w-full border-b  border-slate-300">
@@ -27,6 +25,7 @@ function Nav() {
 
       <div className="mt-5 flex justify-center items-center">
         <input
+          onChange={handleinputChange}
           type="text"
           className="w-full mx-6 bg-inputColor text-black border-red-500 rounded-lg p-2 flex flex-start"
           placeholder="Search for mem, women and children shoes"
