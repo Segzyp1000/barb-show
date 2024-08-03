@@ -1,12 +1,79 @@
 import React from "react";
+import Logo2 from "../assets/Logo2.png";
+import { FaFacebookF } from "react-icons/fa";
 
-function Footer() {
+function Footer({ handleinputChange }) {
   return (
-    <div>
-      <div className="bg-navColor text-white mt-10">
-        <a href="">Nike</a>
-        <a href="">Adidas</a>
-        <a href="">Vans</a>
+    <div className="flex flex-col w-auto mt-20 bg-navColor">
+      <div className=" mt-10 flex justify-between p-6">
+        <div>
+          <a href="">
+            <img src={Logo2} alt="" className="w-[121px]" />
+          </a>
+        </div>
+        <div>
+          <input
+            onChange={handleinputChange}
+            type="text"
+            placeholder="search for shoes"
+            className="bg-white text-black flex items-center rounded-lg"
+          />
+        </div>
+      </div>
+      <div className="flex justify-between space-x-3 text-white mt-10 md:w-1/2 w-auto  mx-auto">
+        <ul className="space-y-2">
+          <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">About us</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Our Client</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">News</a>
+          </li>
+        </ul>
+        <ul className="space-y-2">
+          <h1 className="font-bold text-[12px] md:text-[20px]">Help</h1>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">FAQ</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Help</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Terms</a>
+          </li>
+        </ul>
+        <ul className="space-y-2 ">
+          <h1 className="font-bold text-[12px] md:text-[20px]">Social Media</h1>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Facebook</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Tiktok</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">Instagram</a>
+          </li>
+        </ul>
+        <ul className="space-y-2">
+          <h1 className="font-bold text-[12px] md:text-[20px]">Contact</h1>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">25,Alebiosu Street, mile12</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">+2347031160923</a>
+          </li>
+          <li className="text-[10px] md:text-[13px]">
+            <a href="">segunolo@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+      <div className="bg-inputColor text-navColor mt-10 flex justify-center items-center p-3">
+        <FaFacebookF />
+        <FaFacebookF />
+        <FaFacebookF />
       </div>
     </div>
   );
