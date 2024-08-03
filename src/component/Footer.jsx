@@ -4,8 +4,8 @@ import { FaFacebookF } from "react-icons/fa";
 
 function Footer({ handleinputChange }) {
   return (
-    <div className="flex flex-col w-auto mt-20 bg-navColor">
-      <div className=" mt-10 flex justify-between p-6">
+    <div className="flex flex-col w-auto mt-20  bg-navColor">
+      <div className=" mx-20 mt-10 flex justify-between p-6">
         <div>
           <a href="">
             <img src={Logo2} alt="" className="w-[121px]" />
@@ -16,7 +16,7 @@ function Footer({ handleinputChange }) {
             onChange={handleinputChange}
             type="text"
             placeholder="search for shoes"
-            className="bg-white text-black flex items-center rounded-lg"
+            className="bg-white text-black flex items-center p-1 rounded-lg"
           />
         </div>
       </div>
@@ -46,7 +46,7 @@ function Footer({ handleinputChange }) {
           </li>
         </ul>
         <ul className="space-y-2 ">
-          <h1 className="font-bold text-[12px] md:text-[20px]">Social Media</h1>
+          <h1 className="font-bold text-[12px] md:text-[20px]">Socials</h1>
           <li className="text-[10px] md:text-[13px]">
             <a href="">Facebook</a>
           </li>
@@ -70,10 +70,8 @@ function Footer({ handleinputChange }) {
           </li>
         </ul>
       </div>
-      <div className="bg-inputColor text-navColor mt-10 flex justify-center items-center p-3">
-        <FaFacebookF />
-        <FaFacebookF />
-        <FaFacebookF />
+      <div className="text-slate-300 bg-blue-950 text-[12px] mt-10 flex justify-center items-center p-3">
+        Copyright 2024. All Right Reserverd
       </div>
     </div>
   );
