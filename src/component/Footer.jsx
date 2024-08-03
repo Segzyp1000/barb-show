@@ -1,14 +1,13 @@
 import React from "react";
 import Logo2 from "../assets/Logo2.png";
-import { FaFacebookF } from "react-icons/fa";
 
 function Footer({ handleinputChange }) {
   return (
-    <div className="flex flex-col w-auto mt-20  bg-navColor">
-      <div className=" mx-20 mt-10 flex justify-between p-6">
+    <div className=" bg-navColor flex flex-col w-full mt-20">
+      <div className="mt-10 mx-2 md:mx-12 flex justify-between">
         <div>
           <a href="">
-            <img src={Logo2} alt="" className="w-[121px]" />
+            <img src={Logo2} alt="" className="w-[121px] md:w-[150px]" />
           </a>
         </div>
         <div>
@@ -16,11 +15,11 @@ function Footer({ handleinputChange }) {
             onChange={handleinputChange}
             type="text"
             placeholder="search for shoes"
-            className="bg-white text-black flex items-center p-1 rounded-lg"
+            className="bg-white text-black flex items-center w-auto rounded-lg"
           />
         </div>
       </div>
-      <div className="flex justify-between space-x-3 text-white mt-10 md:w-1/2 w-auto  mx-auto">
+      <div className="flex justify-between space-x-3 text-white mt-10 md:w-1/2 w-full mx-auto p-5">
         <ul className="space-y-2">
           <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
           <li className="text-[10px] md:text-[13px]">
@@ -70,7 +69,10 @@ function Footer({ handleinputChange }) {
           </li>
         </ul>
       </div>
-      <div className="text-slate-300 bg-blue-950 text-[12px] mt-10 flex justify-center items-center p-3">
+      <div
+        className="text-slate-300 bg-blue-950 text-[12px] 
+        md:text-[15px] mt-10 flex justify-center items-center p-3"
+      >
         Copyright 2024. All Right Reserverd
       </div>
     </div>
