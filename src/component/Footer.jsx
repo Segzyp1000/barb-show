@@ -3,8 +3,8 @@ import Logo2 from "../assets/Logo2.png";
 
 function Footer({ handleinputChange }) {
   return (
-    <div className=" bg-navColor flex flex-col w-full mt-20">
-      <div className="mt-10 mx-2 md:mx-12 flex justify-between">
+    <div className=" bg-navColor flex flex-col w-full mt-20 ">
+      <div className="mt-10 mx-2 md:mx-20 flex justify-between p-4">
         <div>
           <a href="">
             <img src={Logo2} alt="" className="w-[121px] md:w-[150px]" />
@@ -15,7 +15,7 @@ function Footer({ handleinputChange }) {
             onChange={handleinputChange}
             type="text"
             placeholder="search for shoes"
-            className="bg-white text-black flex items-center w-auto rounded-lg"
+            className="bg-white text-black flex items-center p-1 w-auto rounded-lg"
           />
         </div>
       </div>
