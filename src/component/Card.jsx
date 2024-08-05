@@ -4,7 +4,7 @@ import { BsFillBagHeartFill } from "react-icons/bs";
 
 function Card({ img, title, star, newPrice, prevPrice }) {
   return (
-    <section className="mt-10 space-y-5 shadow-lg border-black p-3">
+    <section className="mt-10 space-y-5 shadow-lg border-black p-2">
       <div className=" h-[75px] flex justify-center">
         <img src={img} alt={title} className="w-auto" />
       </div>

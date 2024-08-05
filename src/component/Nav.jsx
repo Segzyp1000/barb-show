@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function Nav({ handleinputChange }) {
   return (
-    <div className="text-navColor w-full p-0 md:p-5 lg:p-7">
+    <div className="text-navColor w-full p-2 md:p-5 sm:p-5 sm:w-auto lg:p-7">
       <div className="border-b border-slate-300">
         <div className="flex justify-between items-center p-2">
           <Link to="/">

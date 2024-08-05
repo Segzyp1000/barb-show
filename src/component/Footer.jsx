@@ -3,23 +3,22 @@ import Logo2 from "../assets/Logo2.png";
 
 function Footer({ handleinputChange }) {
   return (
-    <div className=" bg-navColor flex flex-col w-full mt-20 ">
-      <div className="mt-10 mx-2 md:mx-20 flex justify-between p-4">
-        <div>
-          <a href="">
-            <img src={Logo2} alt="" className="w-[121px] md:w-[150px]" />
-          </a>
-        </div>
+    <div className="bg-navColor flex flex-col mt-20 ">
+      <div className="mt-10 flex justify-between px-2 md:px-20">
+        <a href="">
+          <img src={Logo2} alt="" className="w-[121px] md:w-[150px]" />
+        </a>
+
         <div>
           <input
             onChange={handleinputChange}
             type="text"
             placeholder="search for shoes"
-            className="bg-white text-black flex items-center p-1 w-auto rounded-lg"
+            className="bg-white text-black flex justify-center p-1  rounded-lg"
           />
         </div>
       </div>
-      <div className="flex justify-between space-x-3 text-white mt-10 md:w-1/2 w-full mx-auto p-5">
+      <div className="flex justify-between space-x-3 text-white mt-10 md:w-3/4 w-full mx-auto p-5">
         <ul className="space-y-2">
           <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
           <li className="text-[10px] md:text-[13px]">
