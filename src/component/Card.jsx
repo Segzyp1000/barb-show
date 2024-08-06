@@ -26,8 +26,8 @@ function Card({ img, title, star, newPrice, prevPrice }) {
             <BsFillBagHeartFill />
           </div>
         </div>
-        <button className="bg-yellow-500 text-white px-1 rounded-xl">
-          Add to Cart{" "}
+        <button className="bg-yellow-500 text-white text-sm font-semibold px-1 rounded-xl">
+          Add to Cart
         </button>
       </div>
     </section>
