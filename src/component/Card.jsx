@@ -1,13 +1,13 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { BsFillBagHeartFill } from "react-icons/bs";
 
 function Card({ img, title, star, newPrice, prevPrice }) {
   return (
     <section className="mt-10 space-y-3 shadow-lg border-gray-950 p-1">
-      <div className=" h-[75px] flex justify-center">
+      <Link to={`/details/${title}`} className="h-[75px] flex justify-center">
         <img src={img} alt={title} className="w-auto" />
-      </div>
+      </Link>
 
       <div className="card-details text-[13px] p-3">
         <h3 className="ml-1">{title}</h3>
