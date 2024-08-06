@@ -4,6 +4,7 @@ import ads from "../assets/ads.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function Signin() {
   return (
@@ -61,21 +62,24 @@ function Signin() {
           <button className="text-navColor md:text-[15px] text-[10px] font-semibold hover:text-slate-400">
             Forgot Password?
           </button>
-          <button className=" md:text-[15px] text-[9px] font-semibold hover:text-slate-400">
+          <Link
+            to="/signout"
+            className=" md:text-[15px] text-[9px] font-semibold hover:text-slate-400"
+          >
             Do you have an account?
-          </button>
+          </Link>
         </div>
         <div className="flex justify-center py-2 font-bold">or</div>
       </div>
       <div className="flex flex-wrap justify-around py-2 space-y-3">
-        <button className=" md:text-[15px] text-[9px] border-b-4  border-navColor rounded-full p-4 flex gap-2">
+        <button className=" md:text-[20px] text-[15px] border-b-4  border-navColor rounded-full p-4 flex gap-2">
           <FcGoogle /> Sign up with google
         </button>
-        <button className="md:text-[15px] text-[9px] border-b-4 border-navColor rounded-full p-4 flex gap-2">
+        <button className="md:text-[20px] text-[15px] border-b-4 border-navColor rounded-full p-4 flex gap-2">
           <FaFacebookF className="bg-navColor text-white rounded-full" /> Sign
           up with Facebook
         </button>
-        <button className="md:text-[15px] text-[9px] border-b-4 border-navColor rounded-full p-4 flex gap-2">
+        <button className="md:text-[20px] text-[15px] border-b-4 border-navColor rounded-full p-4 flex gap-2">
           <BsFillTelephoneFill className="text-navColor" /> Sign up with Number
         </button>
       </div>

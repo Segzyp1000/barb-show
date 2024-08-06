@@ -4,7 +4,7 @@ import { BsFillBagHeartFill } from "react-icons/bs";
 
 function Card({ img, title, star, newPrice, prevPrice }) {
   return (
-    <section className="mt-10 space-y-5 shadow-lg border-black p-2">
+    <section className="mt-10 space-y-3 shadow-lg border-gray-950 p-1">
       <div className=" h-[75px] flex justify-center">
         <img src={img} alt={title} className="w-auto" />
       </div>
@@ -26,6 +26,9 @@ function Card({ img, title, star, newPrice, prevPrice }) {
             <BsFillBagHeartFill />
           </div>
         </div>
+        <button className="bg-yellow-500 text-white px-1 rounded-xl">
+          Add to Cart{" "}
+        </button>
       </div>
     </section>
   );

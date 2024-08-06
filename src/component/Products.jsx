@@ -2,8 +2,8 @@ import React from "react";
 
 function Products({ result }) {
   return (
-    <section className=" text-navColor max-w-full">
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-2 p-2 ">
+    <section className=" text-navColor">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-1 py-2 ">
         {result}
       </div>
     </section>

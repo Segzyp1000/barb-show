@@ -5,7 +5,7 @@ function Signout() {
   return (
     <form className="w-4/5 p-5 mx-auto">
       <div class="space-y-12">
-        <img src={Logo} alt="" className="w-[200px]" />
+        <img src={Logo} alt="" className="w-[150px]" />
         <div class="border-b border-navColor "></div>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
@@ -72,6 +72,48 @@ function Signout() {
 
           <div class="sm:col-span-3">
             <label
+              for="password"
+              class="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Password
+            </label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="password"
+                id="password"
+                autocomplete="password"
+                className="block 
+              w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm bg-inputColor
+              ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
+              for="last-name"
+              class="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Confirm Password
+            </label>
+            <div class="mt-2">
+              <input
+                type="text"
+                name="confirm password"
+                id="confirm password"
+                autocomplete="confirm password"
+                className="block 
+              w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm bg-inputColor
+              ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <label
               for="country"
               class="block text-sm font-medium leading-6 text-gray-900"
             >
@@ -88,24 +130,6 @@ function Signout() {
                 <option>Ghana</option>
                 <option>United State</option>
               </select>
-            </div>
-          </div>
-
-          <div class="col-span-full">
-            <label
-              for="street-address"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Street address
-            </label>
-            <div class="mt-2">
-              <input
-                type="text"
-                name="street-address"
-                id="street-address"
-                autocomplete="street-address"
-                className="block w-full bg-inputColor rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
             </div>
           </div>
 
@@ -162,18 +186,15 @@ function Signout() {
               />
             </div>
           </div>
+          <button
+            type="submit"
+            className="block w-full bg-navColor rounded-lg p-2  text-white "
+          >
+            Register
+          </button>
         </div>
 
         <div class="border-b border-navColor"></div>
-
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-          <button
-            type="submit"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Save
-          </button>
-        </div>
       </div>
     </form>
   );
