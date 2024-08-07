@@ -3,13 +3,8 @@ import Input from "./Input";
 
 function Category({ handleChange }) {
   return (
-<<<<<<< HEAD
-    <div className="category text-navColor">
-      <div className="font-semibold">Categories</div>
-=======
     <div className="category text-navColor bg-white mt-5">
       <div className="font-semibold ">Categories</div>
->>>>>>> master
       <label>
         <input onChange={handleChange} type="radio" value="" name="test" />
         <span className="checkmark"></span>All

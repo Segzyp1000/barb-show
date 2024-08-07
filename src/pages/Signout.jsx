@@ -3,21 +3,6 @@ import Logo from "../assets/Logo.png";
 
 function Signout() {
   return (
-<<<<<<< HEAD
-    <form className="w-4/5 p-5 mx-auto">
-      <div class="space-y-12">
-        <img src={Logo} alt="" className="w-[150px]" />
-        <div class="border-b border-navColor "></div>
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="sm:col-span-3">
-            <label
-              for="first-name"
-              class="block text-sm font-medium leading-6 text-gray-900"
-            >
-              First name
-            </label>
-            <div class="mt-2">
-=======
     <form className="w-4/5 p-5 mx-auto bg-white">
       <div className="space-y-12">
         <img src={Logo} alt="" className="w-[150px]" />
@@ -31,7 +16,6 @@ function Signout() {
               First name
             </label>
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="first-name"
@@ -44,16 +28,6 @@ function Signout() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-3">
-            <label
-              for="last-name"
-              class="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Last name
-            </label>
-            <div class="mt-2">
-=======
           <div className="sm:col-span-3">
             <label
               for="last-name"
@@ -62,7 +36,6 @@ function Signout() {
               Last name
             </label>
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="last-name"
@@ -76,22 +49,14 @@ function Signout() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-4">
-=======
           <div className="sm:col-span-4">
->>>>>>> master
             <label
               for="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               Email address
             </label>
-<<<<<<< HEAD
-            <div class="mt-2">
-=======
             <div className="mt-2">
->>>>>>> master
               <input
                 id="email"
                 name="email"
@@ -105,16 +70,6 @@ function Signout() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-3">
-            <label
-              for="password"
-              class="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Password
-            </label>
-            <div class="mt-2">
-=======
           <div className="sm:col-span-3">
             <label
               for="password"
@@ -123,7 +78,6 @@ function Signout() {
               Password
             </label>
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="password"
@@ -137,16 +91,6 @@ function Signout() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-3">
-            <label
-              for="last-name"
-              class="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Confirm Password
-            </label>
-            <div class="mt-2">
-=======
           <div className="sm:col-span-3">
             <label
               for="last-name"
@@ -155,7 +99,6 @@ function Signout() {
               Confirm Password
             </label>
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="confirm password"
@@ -169,21 +112,6 @@ function Signout() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-3">
-            <label
-              for="country"
-              class="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Country
-            </label>
-            <div class="mt-2">
-              <select
-                id="country"
-                name="country"
-                autocomplete="country-name"
-                classNigeria="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-=======
           <div className="sm:col-span-3">
             <label
               for="country"
@@ -197,7 +125,6 @@ function Signout() {
                 name="country"
                 autoComplete="country-name"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
->>>>>>> master
               >
                 <option>Nigeria</option>
                 <option>Ghana</option>
@@ -213,80 +140,48 @@ function Signout() {
             >
               City
             </label>
-<<<<<<< HEAD
-            <div class="mt-2">
-=======
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="city"
                 id="city"
-<<<<<<< HEAD
-                autocomplete="address-level2"
-=======
                 autoComplete="address-level2"
->>>>>>> master
                 className="block w-full bg-inputColor rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-2">
-=======
           <div className="sm:col-span-2">
->>>>>>> master
             <label
               for="region"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               State / Province
             </label>
-<<<<<<< HEAD
-            <div class="mt-2">
-=======
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="region"
                 id="region"
-<<<<<<< HEAD
-                autocomplete="address-level1"
-=======
                 autoComplete="address-level1"
->>>>>>> master
                 className="block w-full bg-inputColor rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="sm:col-span-2">
-=======
           <div className="sm:col-span-2">
->>>>>>> master
             <label
               for="postal-code"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               ZIP / Postal code
             </label>
-<<<<<<< HEAD
-            <div class="mt-2">
-=======
             <div className="mt-2">
->>>>>>> master
               <input
                 type="text"
                 name="postal-code"
                 id="postal-code"
-<<<<<<< HEAD
-                autocomplete="postal-code"
-=======
                 autoComplete="postal-code"
->>>>>>> master
                 className="block w-full  bg-inputColor rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
@@ -299,11 +194,7 @@ function Signout() {
           </button>
         </div>
 
-<<<<<<< HEAD
-        <div class="border-b border-navColor"></div>
-=======
         <div className="border-b border-navColor"></div>
->>>>>>> master
       </div>
     </form>
   );

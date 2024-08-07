@@ -7,11 +7,7 @@ function ProductDetails() {
   const product = data.find((product) => product.title === title);
 
   return (
-<<<<<<< HEAD
-    <div className="mx-auto w-3/4 p-12 bg-slate-50">
-=======
     <div className="mx-auto w-3/4 p-12 bg-white mt-20">
->>>>>>> master
       <div>
         <Link to="/" className=" text-navColor  p-5">
           Back to product page
@@ -31,9 +27,6 @@ function ProductDetails() {
           itaque repellat iste. Ea assumenda placeat odio, consequatur magnam
           beatae vel libero, totam nisi magni quas laborum! Laborum, animi.
         </p>
-<<<<<<< HEAD
-        {/* Render more product details here */}
-=======
         <button>
           <Link
             to="/cart"
@@ -42,7 +35,6 @@ function ProductDetails() {
             Add to Cart
           </Link>
         </button>
->>>>>>> master
       </div>
     </div>
   );

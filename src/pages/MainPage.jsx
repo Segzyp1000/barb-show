@@ -1,13 +1,4 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-import Nav from "../component/Nav";
-import Sidebar from "../component/Sidebar";
-import Recommended from "../component/Recommended";
-import Products from "../component/Products";
-import Footer from "../component/Footer";
-import products from "../db/data";
-import Card from "../component/Card";
-=======
 import Sidebar from "../component/Sidebar";
 import Recommended from "../component/Recommended";
 import Products from "../component/Products";
@@ -15,7 +6,6 @@ import products from "../db/data";
 import Card from "../component/Card";
 import Footer from "../component/Footer";
 import SearchInput from "../component/SearchInput";
->>>>>>> master
 
 const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -64,16 +54,10 @@ const MainPage = () => {
       );
     }
     return filteredProducts.map(
-<<<<<<< HEAD
-      ({ img, title, star, reviews, newPrice, prevPrice }) => (
-        <Card
-          key={Math.random()}
-=======
       ({ id, img, title, star, reviews, newPrice, prevPrice }) => (
         <Card
           key={Math.random()}
           id={id}
->>>>>>> master
           img={img}
           title={title}
           star={star}
@@ -88,13 +72,8 @@ const MainPage = () => {
   const result = filteredData(products, selectedCategory, query);
   return (
     <div>
-<<<<<<< HEAD
-      <Nav query={query} handleinputChange={handleinputChange} />
-      <div className="flex">
-=======
       <SearchInput query={query} handleinputChange={handleinputChange} />
       <div className="sty flex mx-3 md:mx-auto">
->>>>>>> master
         <Sidebar handleChange={handleChange} />
         <div>
           <Recommended handleClick={handleClick} />
