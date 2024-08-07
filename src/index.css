@@ -5,10 +5,21 @@
 body {
     
         font-family: "Roboto", sans-serif;
+<<<<<<< HEAD
         font-weight: 400;
         font-style: normal;
     
 
+=======
+        font-weight: 500;
+        font-style: normal;
+        background: #F1F1F1;
+}
+
+.sty {
+        width:90%;
+        
+>>>>>>> master
 }
 
 
