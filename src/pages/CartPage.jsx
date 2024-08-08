@@ -14,11 +14,12 @@ function CartPage() {
       {cart.items.length > 0 ? (
         <div className="cart-container flex flex-col ">
           {cart.items.map((item) => (
-            <div className="border-b border-navColor">
+            <div className="border-b bg-gray-400 text-black px-4 border-white">
               <div key={item.id} className="cart-item flex flex-col mb-4 py-7">
                 <div className="product-info space-y-3">
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
                   <h2>{item.title}</h2>
+                  <h2>${item.newPrice}</h2>
                 </div>
 
                 <div className="actions space-y-3">

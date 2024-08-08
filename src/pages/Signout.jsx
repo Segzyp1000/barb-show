@@ -3,7 +3,7 @@ import Logo from "../assets/Logo.png";
 
 function Signout() {
   return (
-    <form className="w-4/5 p-5 mx-auto bg-white">
+    <form className="w-4/5 p-5 mt-20 mx-auto bg-white">
       <div className="space-y-12">
         <img src={Logo} alt="" className="w-[150px]" />
         <div className="border-b border-navColor "></div>

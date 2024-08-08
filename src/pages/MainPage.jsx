@@ -4,6 +4,7 @@ import Recommended from "../component/Recommended";
 import Products from "../component/Products";
 import products from "../db/data";
 import Card from "../component/Card";
+import BackBtn from "../component/BackBtn";
 import Footer from "../component/Footer";
 import SearchInput from "../component/SearchInput";
 
@@ -70,6 +71,7 @@ const MainPage = () => {
   }
 
   const result = filteredData(products, selectedCategory, query);
+
   return (
     <div>
       <SearchInput query={query} handleinputChange={handleinputChange} />
@@ -80,6 +82,7 @@ const MainPage = () => {
           <Products result={result} />
         </div>
       </div>
+      <BackBtn />
       <Footer />
     </div>
   );

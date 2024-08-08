@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
     return quantity;
   };
 
-  const addOneToCart = (id, img, title) => {
+  const addOneToCart = (id, img, title, newPrice) => {
     const existingProduct = cartProducts.find((product) => product.id === id);
     if (existingProduct) {
       setCartProducts(
@@ -35,7 +35,10 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      setCartProducts([...cartProducts, { id, img, title, quantity: 1 }]);
+      setCartProducts([
+        ...cartProducts,
+        { id, img, title, newPrice, quantity: 1 },
+      ]);
     }
   };
 

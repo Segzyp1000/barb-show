@@ -3,9 +3,15 @@ import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../CartContext";
+import { useLocation } from "react-router-dom";
 
 function Nav() {
   const cart = useContext(CartContext);
+  const location = useLocation();
+
+  if (location.pathname === "/signin" || location.pathname === "/signout") {
+    return null;
+  }
 
   const productCount =
     cart.items.length > 0
