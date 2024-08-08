@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
     return quantity;
   };
 
-  const addOneToCart = (id) => {
+  const addOneToCart = (id, img, title) => {
     const existingProduct = cartProducts.find((product) => product.id === id);
     if (existingProduct) {
       setCartProducts(
@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
-      setCartProducts([...cartProducts, { id: id, quantity: 1 }]);
+      setCartProducts([...cartProducts, { id, img, title, quantity: 1 }]);
     }
   };
 
@@ -66,7 +66,9 @@ export const CartProvider = ({ children }) => {
     let totalCost = 0;
     cartProducts.forEach((cartItem) => {
       const productData = product.find((product) => product.id === cartItem.id);
-      totalCost += productData.price * cartItem.quantity;
+      if (productData && productData.newPrice) {
+        totalCost += productData.newPrice * cartItem.quantity;
+      }
     });
     return totalCost;
   };

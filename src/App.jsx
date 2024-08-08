@@ -10,6 +10,7 @@ import Signout from "./pages/Signout";
 import CartPage from "./pages/CartPage";
 import ProductDetails from "./pages/ProductDetails";
 import Mainlayer from "./Layer/Mainlayer";
+import CartProvider from "./CartContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,9 +26,11 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <div className="app">
-      <RouterProvider router={router} />
-    </div>
+    <CartProvider>
+      <div>
+        <RouterProvider router={router} />
+      </div>
+    </CartProvider>
   );
 }
 
