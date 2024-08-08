@@ -9,7 +9,11 @@ export default {
       colors: {
         navColor: "#1F3E97",
         inputColor: "#F1F1F1"
-      }
+      },
+      animations: {
+        bounce: 'animate-bounce',
+      },
+    
     },
   },
   plugins: [],
