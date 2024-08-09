@@ -17,7 +17,7 @@ function CartPage() {
             <div className="border-b px-4 border-navColor">
               <div
                 key={item.id}
-                className="cart-item flex justify-between mb-4 py-7"
+                className="cart-item flex justify-between flex-wrap  mb-4 py-7"
               >
                 <div className="product-info space-y-3">
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
@@ -25,7 +25,7 @@ function CartPage() {
                   <h2>${item.newPrice}</h2>
                 </div>
 
-                <div className="actions space-y-3 mt-20 space-x-2">
+                <div className="space-y-3 mt-20 space-x-2 ">
                   <button
                     onClick={() => cart.addOneToCart(item.id)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded"
