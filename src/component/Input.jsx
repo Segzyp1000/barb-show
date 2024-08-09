@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ handleChange, value, title, name, color }) {
+function Input({ handleChange, value, title, name }) {
   return (
     <label className="sidebar-label flex gap-1">
       <input
@@ -9,9 +9,8 @@ function Input({ handleChange, value, title, name, color }) {
         value={value}
         name={name}
         className="blue-input"
-        style={{ backgroundColor: value }}
       />
-      <span className="checkmark" style={{ backgroundColor: color }}></span>
+      <span className="checkmark"></span>
       {title}
     </label>
   );

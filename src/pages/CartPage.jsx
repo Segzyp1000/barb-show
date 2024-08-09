@@ -15,26 +15,33 @@ function CartPage() {
         <div className="cart-container flex flex-col ">
           {cart.items.map((item) => (
             <div className="border-b px-4 border-navColor">
-              <div key={item.id} className="cart-item flex flex-col mb-4 py-7">
+              <div
+                key={item.id}
+                className="cart-item flex justify-between mb-4 py-7"
+              >
                 <div className="product-info space-y-3">
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
                   <h2>{item.title}</h2>
                   <h2>${item.newPrice}</h2>
                 </div>
 
-                <div className="actions space-y-3">
+                <div className="actions space-y-3 mt-20 space-x-2">
                   <button
                     onClick={() => cart.addOneToCart(item.id)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded"
                   >
                     +
                   </button>
+                  <button className="bg-white text-black px-2 py-1 rounded">
+                    {item.quantity}
+                  </button>
                   <button
                     onClick={() => cart.removeOneFromCart(item.id)}
-                    className="bg-white text-black px-2 py-1 rounded"
+                    className="bg-navColor text-white px-2 py-1 rounded"
                   >
                     -
                   </button>
+
                   <button
                     onClick={() => cart.deleteFromCart(item.id)}
                     className="bg-red-500 text-white px-2 py-1 rounded"
