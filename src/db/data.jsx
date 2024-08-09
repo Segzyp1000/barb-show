@@ -78,7 +78,7 @@ const data = [
   {
     id: 7,
     img: "https://m.media-amazon.com/images/I/61V9APfz97L._AC_UY695_.jpg",
-    title: "Loafer Flats",
+    title: "Loafer Ladies Flats",
     star: <AiFillStar className="rating-star" />,
     reviews: "(123 reviews)",
     prevPrice: "$140,00",
