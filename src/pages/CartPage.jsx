@@ -10,22 +10,22 @@ function CartPage() {
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
-
+      <div className="border-b px-4 border-slate-300"></div>
       {cart.items.length > 0 ? (
-        <div className="cart-container flex flex-col ">
+        <div className="cart-container flex flex-col shadow-lg border-black ">
           {cart.items.map((item) => (
-            <div className="border-b px-4 border-navColor">
+            <div className="border-b px-4 border-slate-300">
               <div
                 key={item.id}
                 className="cart-item flex justify-between flex-wrap  mb-4 py-7"
               >
                 <div className="product-info space-y-3">
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
-                  <h2>{item.title}</h2>
-                  <h2>${item.newPrice}</h2>
+                  <h2 className="font-bold">{item.title}</h2>
+                  <h2 className="font-light">${item.newPrice}</h2>
                 </div>
 
-                <div className="space-y-3 mt-20 space-x-2 ">
+                <div className="space-y-3 mt-10 space-x-2 ">
                   <button
                     onClick={() => cart.addOneToCart(item.id)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded"
@@ -54,8 +54,8 @@ function CartPage() {
           ))}
 
           <div className="total-cost flex mt-5">
-            <p>Total Cost:</p>
-            <p>${cart.getTotalCost()}</p>
+            <p className="font-bold text-[19px]">Total:</p>
+            <p className="font-bold text-[19px]">${cart.getTotalCost()}</p>
           </div>
           <button className="bg-navColor text-white px-4 mt-5 rounded p-2">
             Proceed to Checkout

@@ -26,7 +26,7 @@ function Nav() {
         </Link>
         <div className="flex flex-end space-x-3">
           <Link to="/cart">
-            <span className="flex rounded-xl bg-navColor text-white px-1 mt-1">
+            <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white px-1 mt-1">
               <FaShoppingCart className="mr-1" />
               {productCount}
             </span>

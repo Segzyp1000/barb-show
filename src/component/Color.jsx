@@ -3,16 +3,10 @@ import Input from "./Input";
 
 function Color({ handleChange }) {
   return (
-    <div className=" text-navColor">
+    <div className="text-navColor">
       <div className="font-semibold mt-5">Color</div>
       <label>
-        <input
-          onChange={handleChange}
-          type="radio"
-          value=""
-          name="test2"
-          className="bg-blue-800"
-        />
+        <input onChange={handleChange} type="radio" value="" name="test2" />
         <span className="checkmark"></span>All
       </label>
       <Input
