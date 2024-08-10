@@ -10,19 +10,20 @@ function CartPage() {
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
-      <div className="border-b px-4 border-slate-300"></div>
       {cart.items.length > 0 ? (
-        <div className="cart-container flex flex-col shadow-lg border-black ">
+        <div className="cart-container flex flex-col ">
           {cart.items.map((item) => (
-            <div className="border-b px-4 border-slate-300">
+            <div className="border-b px-4 border-slate-400">
               <div
                 key={item.id}
                 className="cart-item flex justify-between flex-wrap  mb-4 py-7"
               >
-                <div className="product-info space-y-3">
+                <div className="flex space-x-2 items-center">
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
-                  <h2 className="font-bold">{item.title}</h2>
-                  <h2 className="font-light">${item.newPrice}</h2>
+                  <div>
+                    <h2 className="font-bold">{item.title}</h2>
+                    <h2 className="font-normal">Price: ${item.newPrice}</h2>
+                  </div>
                 </div>
 
                 <div className="space-y-3 mt-10 space-x-2 ">
@@ -62,7 +63,7 @@ function CartPage() {
           </button>
         </div>
       ) : (
-        <p>Your cart is empty.</p>
+        <p className="font-normal">Your cart is empty.</p>
       )}
     </div>
   );
