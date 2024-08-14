@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../config/Firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Nav() {
   const cart = useContext(CartContext);
   const location = useLocation();
+  const [user, loading] = useAuthState(auth);
 
   if (location.pathname === "/signin" || location.pathname === "/signout") {
     return null;
@@ -17,6 +21,10 @@ function Nav() {
     cart.items.length > 0
       ? cart.items.reduce((sum, product) => sum + product.quantity, 0)
       : "";
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+  };
 
   return (
     <div className="text-navColor block w-full bg-white">
@@ -35,7 +43,14 @@ function Nav() {
             to="/signin"
             className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
           >
-            Sign In
+            {user ? (
+              <div>
+                <img src={user.googleURL} alt="" />
+                <button onClick={handleSignOut}>Sign out</button>
+              </div>
+            ) : (
+              <button>Sign in</button>
+            )}
           </Link>
         </div>
       </div>

@@ -15,17 +15,6 @@ body {
         
 }
 
-.input-color {
-        background-color: var(--color);
-        border-color: white;
-      }
-      
-      .checkmark-color {
-        background-color: var(--color);
-        border-color: white;
-        border-width: 1px;
-        border-style: solid;
-      }
       
 
 

@@ -1,14 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import ads from "../assets/ads.png";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { auth, googleProvider, facebookProvider } from "../config/Firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-function Signin() {
+const Signin = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signIn = async (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError("Please fill in both email and password");
+      return;
+    }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.error(err);
+      setError("Invalid email or password");
+    }
+  };
+
+  const signInWithGoogle = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    }
+  };
+
+  const signInWithFacebook = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithPopup(auth, facebookProvider);
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      setError(true);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
         <img src={Logo} alt="" className="w-[151px]" />
 
@@ -19,12 +66,12 @@ function Signin() {
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="sm:col-span-3">
             <label
-              for="email"
+              htmlFor="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               Email/Username
             </label>
-            <div class="mt-2">
+            <div className="mt-2">
               <input
                 type="text"
                 name="email"
@@ -32,55 +79,56 @@ function Signin() {
                 autoComplete="email"
                 className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="example@mail.com"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
           </div>
 
           <div className="sm:col-span-3">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               Password
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
-                autoComplete="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
                 className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
-          <div></div>
         </div>
-        <button className="bg-navColor w-full font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400">
+        <button
+          onClick={signIn}
+          className="mt-5 bg-navColor w-full font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400"
+        >
           Sign in
         </button>
-        <div className="flex justify-between flex-wrap space-x-3 py-2">
-          <button className="text-navColor md:text-[15px] text-[10px] font-semibold hover:text-slate-400">
-            Forgot Password?
-          </button>
-          <Link
-            to="/signout"
-            className=" md:text-[15px] text-[9px] font-semibold hover:text-slate-400"
-          >
-            Do you have an account?
-          </Link>
-        </div>
+        {error && (
+          <span className="error-message text-red-700">
+            Please fill in both email and password fields
+          </span>
+        )}
         <div className="flex justify-center py-2 font-bold">or</div>
       </div>
-      <div className="flex flex-wrap justify-around py-2 space-y-3">
-        <button className=" md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2">
-          <FcGoogle /> Sign up with google
+      <div className="flex justify-center items-center mt-10 space-x-12 space-y-3  py-2">
+        <button
+          onClick={signInWithGoogle}
+          className=" md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
+        >
+          <FcGoogle /> Sign in with google
         </button>
-        <button className="md:text-[20px] text-[15px] border-b-4  bg-white border-navColor rounded-full p-4 flex gap-2">
+        <button
+          onClick={signInWithFacebook}
+          className="md:text-[20px] text-[15px] border-b-4  bg-white border-navColor rounded-full p-4 flex gap-2"
+        >
           <FaFacebookF className="bg-navColor text-white rounded-full" /> Sign
-          up with Facebook
-        </button>
-        <button className="md:text-[20px] text-[15px] border-b-4  bg-white border-navColor rounded-full p-4 flex gap-2">
-          <BsFillTelephoneFill className="text-navColor" /> Sign up with Number
+          in with Facebook
         </button>
       </div>
       <img
@@ -90,6 +138,6 @@ function Signin() {
       />
     </form>
   );
-}
+};
 
 export default Signin;

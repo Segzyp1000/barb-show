@@ -75,6 +75,7 @@ const MainPage = () => {
   return (
     <div>
       <SearchInput query={query} handleinputChange={handleinputChange} />
+
       <div className="sty flex mx-3 md:mx-auto">
         <Sidebar handleChange={handleChange} />
         <div>
@@ -82,6 +83,7 @@ const MainPage = () => {
           <Products result={result} />
         </div>
       </div>
+
       <BackBtn />
       <Footer />
     </div>
