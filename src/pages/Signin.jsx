@@ -58,7 +58,7 @@ const Signin = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} type="POST">
       <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
         <img src={Logo} alt="" className="w-[151px]" />
 
