@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import ads from "../assets/ads.png";
-import { FaFacebookF } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { auth, googleProvider, facebookProvider } from "../config/Firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+import { auth } from "../config/Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
@@ -15,6 +14,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const signIn = async (e) => {
     e.preventDefault();
@@ -26,28 +26,6 @@ const Signin = () => {
       await signInWithEmailAndPassword(auth, email, password);
       signin(true);
       navigate("/", { replace: true });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const signInWithGoogle = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithPopup(auth, googleProvider);
-      signin(true);
-      navigate("/");
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const signInWithFacebook = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithPopup(auth, facebookProvider);
-      signin(true);
-      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -112,26 +90,13 @@ const Signin = () => {
         >
           Sign in
         </button>
+        {error && (
+          <p className="text-red-700">Email and Password cannot be empty</p>
+        )}
 
         <div className="flex justify-center py-2 font-bold">or</div>
       </div>
-      <div className="flex justify-center items-center mt-10 space-x-12 space-y-3  py-2">
-        <button
-          onClick={signInWithGoogle}
-          className=" md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
-        >
-          <FcGoogle /> Sign in with google{" "}
-        </button>
 
-        <button
-          onClick={signInWithFacebook}
-          className="md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
-        >
-          {" "}
-          <FaFacebookF className="bg-navColor text-white rounded-full" /> Sign
-          in with Facebook{" "}
-        </button>
-      </div>
       <img
         src={ads}
         alt=""
