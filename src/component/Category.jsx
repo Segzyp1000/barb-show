@@ -3,7 +3,7 @@ import Input from "./Input";
 
 function Category({ handleChange }) {
   return (
-    <div className="category text-navColor bg-white mt-5">
+    <div className="category text-navColor  mt-5">
       <div className="font-semibold ">Categories</div>
       <label>
         <input onChange={handleChange} type="radio" value="" name="test" />

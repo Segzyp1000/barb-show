@@ -6,8 +6,12 @@ import { FcGoogle } from "react-icons/fc";
 import { auth, googleProvider, facebookProvider } from "../config/Firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 
 const Signin = () => {
+  const { signin } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
@@ -16,15 +20,16 @@ const Signin = () => {
   const signIn = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      setError("Please fill in both email and password");
+      setError("true");
       return;
     }
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      signin(true);
       navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
-      setError("Invalid email or password");
+      setError("true");
     }
   };
 
@@ -32,6 +37,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       await signInWithPopup(auth, googleProvider);
+      signin(true);
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -43,6 +49,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       await signInWithPopup(auth, facebookProvider);
+      signin(true);
       navigate("/");
     } catch (err) {
       console.error(err);
@@ -109,11 +116,8 @@ const Signin = () => {
         >
           Sign in
         </button>
-        {error && (
-          <span className="error-message text-red-700">
-            Please fill in both email and password fields
-          </span>
-        )}
+        {error && <p className="text-red-700">Kindly check your fields</p>}
+
         <div className="flex justify-center py-2 font-bold">or</div>
       </div>
       <div className="flex justify-center items-center mt-10 space-x-12 space-y-3  py-2">
