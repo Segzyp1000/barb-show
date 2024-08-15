@@ -16,6 +16,8 @@ const Signin = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [googleError, setGoogleError] = useState(false);
+  const [facebookError, setFacebookError] = useState(false);
 
   const signIn = async (e) => {
     e.preventDefault();
@@ -41,7 +43,7 @@ const Signin = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
-      setError(true);
+      setGoogleError(true);
     }
   };
 
@@ -53,7 +55,7 @@ const Signin = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
-      setError(true);
+      setFacebookError(true);
     }
   };
 
@@ -125,15 +127,22 @@ const Signin = () => {
           onClick={signInWithGoogle}
           className=" md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
         >
-          <FcGoogle /> Sign in with google
+          {" "}
+          <FcGoogle /> Sign in with google{" "}
         </button>
+        {googleError && <p className="text-red-700">Google sign-in failed</p>}
+
         <button
           onClick={signInWithFacebook}
-          className="md:text-[20px] text-[15px] border-b-4  bg-white border-navColor rounded-full p-4 flex gap-2"
+          className="md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
         >
+          {" "}
           <FaFacebookF className="bg-navColor text-white rounded-full" /> Sign
-          in with Facebook
+          in with Facebook{" "}
         </button>
+        {facebookError && (
+          <p className="text-red-700">Facebook sign-in failed</p>
+        )}
       </div>
       <img
         src={ads}
