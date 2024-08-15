@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import ads from "../assets/ads.png";
-import { FaFacebookF } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { auth, googleProvider, facebookProvider } from "../config/Firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+import { auth } from "../config/Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
@@ -26,28 +25,6 @@ const Signin = () => {
       await signInWithEmailAndPassword(auth, email, password);
       signin(true);
       navigate("/", { replace: true });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const signInWithGoogle = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithPopup(auth, googleProvider);
-      signin(true);
-      navigate("/");
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const signInWithFacebook = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithPopup(auth, facebookProvider);
-      signin(true);
-      navigate("/");
     } catch (err) {
       console.error(err);
     }
