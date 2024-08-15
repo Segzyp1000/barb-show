@@ -13,16 +13,13 @@ const Signin = () => {
   const { signin } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [googleError, setGoogleError] = useState(false);
-  const [facebookError, setFacebookError] = useState(false);
 
   const signIn = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      setError("true");
+      console.error(err);
       return;
     }
     try {
@@ -31,7 +28,6 @@ const Signin = () => {
       navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
-      setError("true");
     }
   };
 
@@ -43,7 +39,6 @@ const Signin = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
-      setGoogleError(true);
     }
   };
 
@@ -55,7 +50,6 @@ const Signin = () => {
       navigate("/");
     } catch (err) {
       console.error(err);
-      setFacebookError(true);
     }
   };
 
@@ -118,7 +112,6 @@ const Signin = () => {
         >
           Sign in
         </button>
-        {error && <p className="text-red-700">Kindly check your fields</p>}
 
         <div className="flex justify-center py-2 font-bold">or</div>
       </div>
@@ -127,10 +120,8 @@ const Signin = () => {
           onClick={signInWithGoogle}
           className=" md:text-[20px] text-[15px] border-b-4 bg-white border-navColor rounded-full p-4 flex gap-2"
         >
-          {" "}
           <FcGoogle /> Sign in with google{" "}
         </button>
-        {googleError && <p className="text-red-700">Google sign-in failed</p>}
 
         <button
           onClick={signInWithFacebook}
@@ -140,9 +131,6 @@ const Signin = () => {
           <FaFacebookF className="bg-navColor text-white rounded-full" /> Sign
           in with Facebook{" "}
         </button>
-        {facebookError && (
-          <p className="text-red-700">Facebook sign-in failed</p>
-        )}
       </div>
       <img
         src={ads}
