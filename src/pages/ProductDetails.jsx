@@ -32,7 +32,7 @@ function ProductDetails() {
             to="/cart"
             className="bg-yellow-500 text-white mt-10 text-lg font-semibold px-2 rounded-lg"
           >
-            Add to Cart
+            Go to Cart
           </Link>
         </button>
       </div>

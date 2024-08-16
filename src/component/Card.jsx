@@ -19,8 +19,8 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
 
         <div className="card-price flex space-x-5">
           <div className="price space-x-1">
-            <del>{prevPrice}/</del>
-            <b>{newPrice}</b>
+            <del>{prevPrice}</del>
+            <b>${newPrice}</b>
           </div>
         </div>
         <button

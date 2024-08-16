@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Logo from "../assets/Logo.png";
 import ads from "../assets/ads.png";
-
 import { auth } from "../config/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
 
@@ -14,28 +13,36 @@ const Signin = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const signIn = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      console.error(err);
+      setError("Please fill in all fields");
       return;
     }
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       signin(true);
       navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
+      if (err.code === "auth/user-not-found") {
+        setError("Email not found. Please register first.");
+      } else if (err.code === "auth/wrong-password") {
+        setError("Incorrect password. Please try again.");
+      } else {
+        setError("An unexpected error occurred. Please try again later.");
+      }
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <form onSubmit={handleSubmit} type="POST">
+    <form onSubmit={(e) => e.preventDefault()}>
       <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
         <img src={Logo} alt="" className="w-[151px]" />
 
@@ -83,12 +90,16 @@ const Signin = () => {
             </div>
           </div>
         </div>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         <button
           onClick={signIn}
           className="mt-5 bg-navColor w-full font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400"
         >
           Sign in
         </button>
+        <Link to="/register" className="text-navColor hover:bg-slate-50">
+          click here to register a user
+        </Link>
       </div>
 
       <img

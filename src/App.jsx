@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Signin from "./pages/Signin";
+import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import CartPage from "./pages/CartPage";
 import ProductDetails from "./pages/ProductDetails";
@@ -25,6 +26,7 @@ function App() {
         <Route index element={<MainPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/details/:title" element={<ProductDetails />} />
         <Route
           path="/checkout"
