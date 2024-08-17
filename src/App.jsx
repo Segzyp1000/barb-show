@@ -13,6 +13,7 @@ import Signin from "./pages/Signin";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import CartPage from "./pages/CartPage";
+import About from "./pages/About";
 import ProductDetails from "./pages/ProductDetails";
 import Mainlayer from "./Layer/Mainlayer";
 import CartProvider from "./CartContext";
@@ -27,6 +28,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
         <Route path="/details/:title" element={<ProductDetails />} />
         <Route
           path="/checkout"

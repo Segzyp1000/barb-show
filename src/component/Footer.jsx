@@ -1,5 +1,6 @@
 import React from "react";
 import Logo2 from "../assets/Logo2.png";
+import { Link } from "react-router-dom";
 
 function Footer({ handleinputChange }) {
   return (
@@ -23,7 +24,7 @@ function Footer({ handleinputChange }) {
         <ul className="space-y-2">
           <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
           <li className="text-[10px] md:text-[13px]">
-            <a href="">About us</a>
+            <Link to="/about">About us</Link>
           </li>
           <li className="text-[10px] md:text-[13px]">
             <a href="">Our Client</a>
@@ -47,13 +48,13 @@ function Footer({ handleinputChange }) {
         <ul className="space-y-2 ">
           <h1 className="font-bold text-[12px] md:text-[20px]">Socials</h1>
           <li className="text-[10px] md:text-[13px]">
-            <a href="">Facebook</a>
+            <a href="https://www.facebook.com">Facebook</a>
           </li>
           <li className="text-[10px] md:text-[13px]">
-            <a href="">Tiktok</a>
+            <a href="https://www.tiktok.com">Tiktok</a>
           </li>
           <li className="text-[10px] md:text-[13px]">
-            <a href="">Instagram</a>
+            <a href="https://www.instagram.com">Instagram</a>
           </li>
         </ul>
         <ul className="space-y-2">
@@ -61,11 +62,11 @@ function Footer({ handleinputChange }) {
           <li className="text-[10px] md:text-[13px]">
             <a href="">25,Alebiosu Street, mile12</a>
           </li>
-          <li className="text-[10px] md:text-[13px]">
-            <a href="">+2347031160923</a>
+          <li className="text-[10px] md:text-[13px] text-red-200">
+            <a href="tel:+2347031160923">+2347031160923</a>
           </li>
-          <li className="text-[10px] md:text-[13px]">
-            <a href="">segunolo@gmail.com</a>
+          <li className="text-[10px] md:text-[13px] text-red-200">
+            <a href="mailto:segunolo@gmail.com">segunolo@gmail.com</a>
           </li>
         </ul>
       </div>
