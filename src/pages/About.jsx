@@ -3,9 +3,9 @@ import Sneaker from "../assets/sneakers.png";
 
 function About() {
   return (
-    <div className="flex space-x-5 mx-auto mt-20 w-3/4 text-gray-800 pb-12">
+    <div className="flex space-x-5 mx-auto mt-24 w-3/4 text-gray-800 pb-12">
       <img src={Sneaker} alt="" className="w-[400px] lg:flex hidden" />
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-6">
         <div className="w-auto">
           <h1 className="text-3xl font-semibold ">About Us</h1>
           <p className=" md:text-sm text-[17px] text-gray-500">
