@@ -24,7 +24,7 @@ function CartPage() {
                   <img src={item.img} alt={item.title} className="w-20 h-20" />
                   <div>
                     <h2 className="font-bold">{item.title}</h2>
-                    <h2 className="font-normal">Price: ${item.newPrice}</h2>
+                    <h2 className="font-normal">Price: ₦{item.newPrice}</h2>
                   </div>
                 </div>
 
@@ -58,7 +58,7 @@ function CartPage() {
 
           <div className="total-cost flex mt-5">
             <p className="font-bold text-[19px]">Total:</p>
-            <p className="font-bold text-[19px]">${cart.getTotalCost()}</p>
+            <p className="font-bold text-[19px]">₦{cart.getTotalCost()}</p>
           </div>
 
           <button
