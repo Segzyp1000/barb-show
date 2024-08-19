@@ -7,13 +7,23 @@ body {
         font-family: "Roboto", sans-serif;
         font-weight: 500;
         font-style: normal;
-        background: #F1F1F1;
+        background: rgba(48, 47, 48, 0.067);
 }
 
 .sty {
         width:90%;
         
 }
+
+.navb {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+       
+      }
+      
 
       
 

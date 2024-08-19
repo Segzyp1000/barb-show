@@ -4,7 +4,7 @@ import Button from "./Button";
 function Recommended({ handleClick }) {
   return (
     <>
-      <div className=" text-navColor bg-white mt-6 ">
+      <div className=" text-navColor bg-white mt-7">
         <h3 className="font-semibold py-5">Recommended</h3>
         <div className="button flex  space-x-1">
           <Button onClickHandler={handleClick} value="" title="All Products" />

@@ -97,7 +97,7 @@ const Signin = () => {
         >
           Sign in
         </button>
-        <Link to="/register" className="text-navColor hover:bg-slate-50">
+        <Link to="/register" className="text-navColor hover:bg-slate-50 mt-2">
           click here to register
         </Link>
       </div>

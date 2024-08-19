@@ -36,7 +36,7 @@ const Register = () => {
   return (
     <form onClick={handleSubmit} type="POST">
       <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
-        <img src={Logo} alt="" className="w-[150px]" />
+        <p className="text-3xl font-bold text-gray-900">Sign up</p>
         <h1 className=" font-md leading-7 text-gray-900 mt-20">
           Fill your information to register
         </h1>

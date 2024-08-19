@@ -379,6 +379,29 @@ const data = [
     color: "black",
     category: "flats",
   },
+  {
+    id: 11,
+    img: "https://m.media-amazon.com/images/I/71E75yRwCDL._AC_UY575_.jpg",
+    title: "Pacer Future Sneaker",
+    star: <AiFillStar className="rating-star" />,
+    reviews: "(123 reviews)",
+    prevPrice: "$140,00",
+    newPrice: "150",
+    company: "Puma",
+    color: "red",
+    category: "sneakers",
+  },
+  {
+    id: 12,
+    img: "https://m.media-amazon.com/images/I/71jeoX0rMBL._AC_UX575_.jpg",
+    title: "Unisex-Adult Super",
+    star: <AiFillStar className="rating-star" />,
+    reviews: "(123 reviews)",
+    prevPrice: "$140,00",
+    newPrice: "150",
+    company: "Puma",
+    color: "black",
+    category: "sneakers",
+  },
 ];
-
 export default data;

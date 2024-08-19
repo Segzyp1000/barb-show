@@ -3,12 +3,12 @@ import React from "react";
 function SearchInput({ handleinputChange }) {
   return (
     <>
-      <div className="mt-5 flex justify-center items-center relative">
+      <div className="mt-14 flex justify-center items-center relative">
         <input
           onChange={handleinputChange}
           type="text"
-          className="w-full mx-6 md:mx-12 bg-white text-black border-red-500  p-2 flex flex-start fixed "
-          placeholder="Search for men, women and children shoes"
+          className="w-full mx-6 md:mx-12 bg-white text-black border-red-500  flex flex-start fixed p-3"
+          placeholder="Search for different kinds of shoe"
         />
       </div>
     </>
