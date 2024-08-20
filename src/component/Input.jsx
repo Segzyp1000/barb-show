@@ -8,12 +8,12 @@ function Input({ handleChange, value, title, name, color }) {
         type="radio"
         value={value}
         name={name}
-        className="blue-input"
         style={{ backgroundColor: color }}
+        className="blue-input"
       />
       <span
         className="checkmark"
-        style={{ backgroundColor: color, borderColor: "white" }}
+        style={{ backgroundColor: color, borderColor: "black" }}
       ></span>
       {title}
     </label>

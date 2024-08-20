@@ -27,7 +27,7 @@ function Footer({ handleinputChange }) {
             <Link to="/about">About us</Link>
           </li>
           <li className="text-[10px] md:text-[13px]  font-light text-gray-300">
-            <a href="">Our Client</a>
+            <Link to="/admin">Admin</Link>
           </li>
           <li className="text-[10px] md:text-[13px]  font-light text-gray-300">
             <a href="">News</a>

@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   return (
-    <form onClick={handleSubmit} type="POST">
+    <form type="POST">
       <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
         <p className="text-3xl font-bold text-gray-900">Sign up</p>
         <h1 className=" font-md leading-7 text-gray-900 mt-20">
@@ -99,8 +99,9 @@ const Register = () => {
           </div>
         </div>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="text-red-700">{error}</p>}
         <button
+          onClick={handleSubmit}
           type="submit"
           className="text-white bg-navColor px-2 rounded-xl mb-12 hover:slate mt-10"
         >

@@ -17,7 +17,7 @@ function ProductDetails() {
         <h1>{product.title}</h1>
         <img src={product.img} alt={product.title} className="w-[200px]" />
         <p>Color:{product.color}</p>
-        <p>Price: ${product.newPrice}</p>
+        <p>Price: ₦{product.newPrice}</p>
         <p>Category: {product.category}</p>
         <p>
           <b>Description:</b> Lorem ipsum, dolor sit amet consectetur

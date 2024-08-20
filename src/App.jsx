@@ -14,11 +14,13 @@ import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import CartPage from "./pages/CartPage";
 import About from "./pages/About";
+import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
 import Mainlayer from "./Layer/Mainlayer";
 import CartProvider from "./CartContext";
 import { AuthProvider } from "./AuthContext";
 import RequireAuth from "./RequireAuth";
+import AdminPage from "./admin/AdminPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -30,6 +32,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/details/:title" element={<ProductDetails />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/checkout"
           element={
