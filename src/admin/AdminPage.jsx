@@ -9,6 +9,11 @@ const AdminPage = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const [image, setImage] = useState(null);
+  const [newProduct, setNewProduct] = useState({
+    title: "",
+    price: "",
+    img: "",
+  });
 
   useEffect(() => {
     const checkAdmin = async () => {
@@ -45,17 +50,12 @@ const AdminPage = () => {
           product.id === id ? { ...product, ...updatedProduct } : product
         )
       );
-      if (updatedProduct.title) {
-        setTotalProducts(totalProducts + 1);
-      } else {
-        setTotalProducts(totalProducts - 1);
-      }
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleAddProduct = async (newProduct) => {
+  const handleAddProduct = async () => {
     try {
       if (!image) {
         alert("Please select an image");
@@ -83,39 +83,65 @@ const AdminPage = () => {
   };
 
   return (
-    <div className="mt-20 flex space-x-5">
-      <div className="flex">
-        <h1>Admin Page</h1>
-        <p>Total Products: {totalProducts}</p>
-      </div>
-      <div className="flex-col">
-        <h1 className="text-2xl font-bold">Product List</h1>
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              {product.title}
-              <button onClick={() => handleDeleteProduct(product.id)}>
-                Delete
-              </button>
-              <button
-                onClick={() =>
-                  handleEditProduct(product.id, { title: "Updated Title" })
-                }
-              >
-                Edit
-              </button>
-            </li>
-          ))}
-        </ul>
+    <div className="admin-page container flex-col justify-center items-center mx-auto p-4 mt-20 w-3/4">
+      <h1 className="text-3xl font-bold mb-4">Admin Page</h1>
+      <div className="product-list overflow-x-auto mt-10">
+        <table className="table-auto">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Title</th>
+              <th className="px-4 py-2">Image</th>
+              <th className="px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.id}>
+                <td className="px-4 py-2">{product.title}</td>
+                <td className="px-4 py-2">
+                  <img src={product.img} alt={product.title} width="50" />
+                </td>
+                <td className="px-4 py-2">
+                  <button
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => handleDeleteProduct(product.id)}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() =>
+                      handleEditProduct(product.id, { title: "Updated Title" })
+                    }
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <form
+        className="add-product-form mt-4"
         onSubmit={(e) => {
           e.preventDefault();
-          handleAddProduct({ title: "New Product", price: 99.99 });
+          handleAddProduct();
         }}
       >
-        <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-        <input type="submit" value="Add Product" />
+        <input
+          type="file"
+          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, title: e.target.value })
+          }
+        />
+        <input
+          type="submit"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          value="Add Product"
+        />
       </form>
     </div>
   );
@@ -150,4 +176,4 @@ export default AdminPage;
 //   })
 //   .catch(error => {
 //     console.error("Error getting user document:", error);
-//   });
+//   })

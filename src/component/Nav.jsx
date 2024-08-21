@@ -28,7 +28,7 @@ function Nav() {
 
   return (
     <div className="navb text-navColor block w-full bg-white">
-      <div className="flex justify-between items-center p-2 mx-0 md:mx-9">
+      <div className="flex justify-between items-center p-2 mx-0 md:mx-14">
         <Link to="/">
           <img src={Logo} alt="" className="w-[121px] md:w-[150px]" />
         </Link>
