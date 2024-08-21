@@ -36,7 +36,9 @@ const Signin = () => {
       } else if (err.code === "auth/wrong-password") {
         setError("Incorrect password. Please try again.");
       } else {
-        setError("An unexpected error occurred. Please try again later.");
+        setError(
+          "Either email or password is wrong, kindly check and sign in again"
+        );
       }
     }
   };
