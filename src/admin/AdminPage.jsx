@@ -7,7 +7,6 @@ const AdminPage = () => {
   const [products, setProducts] = useState(data);
   const [totalProducts, setTotalProducts] = useState(data.length);
   const [isAdmin, setIsAdmin] = useState(false);
-  const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [newProduct, setNewProduct] = useState({
     title: "",
@@ -15,20 +14,23 @@ const AdminPage = () => {
     img: "",
   });
 
-  useEffect(() => {
-    const checkAdmin = async () => {
-      try {
-        const user = auth.currentUser;
-        if (!user || user.email !== "admin@mail.com") {
-          alert("You don't have access to the admin page");
-          navigate("/");
-        } else {
-          setIsAdmin(true);
-        }
-      } catch (error) {
-        console.error(error);
+  const navigate = useNavigate();
+
+  const checkAdmin = async () => {
+    try {
+      const user = auth.currentUser;
+      if (!user || user.email !== "admin@mail.com") {
+        alert("You don't have access to the admin page");
+        navigate("/");
+      } else {
+        setIsAdmin(true);
       }
-    };
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
     checkAdmin();
   }, []);
 
@@ -50,6 +52,7 @@ const AdminPage = () => {
           product.id === id ? { ...product, ...updatedProduct } : product
         )
       );
+      setNewProduct(updatedProduct);
     } catch (error) {
       console.error(error);
     }
@@ -64,8 +67,11 @@ const AdminPage = () => {
       const docRef = await db.collection("products").add(newProduct);
       const imageUrl = await uploadImage(image, docRef.id);
       await db.collection("products").doc(docRef.id).update({ imageUrl });
-      setProducts([...products, { ...newProduct, id: docRef.id, imageUrl }]);
-      setTotalProducts(totalProducts + 1);
+      const productsCollection = collection(db, "products");
+      const productsSnapshot = await getDocs(productsCollection);
+      const products = productsSnapshot.docs.map((doc) => doc.data());
+      setProducts(products);
+      setTotalProducts(products.length);
     } catch (error) {
       console.error(error);
     }
@@ -73,9 +79,10 @@ const AdminPage = () => {
 
   const uploadImage = async (image, productId) => {
     try {
-      const storageRef = storage.ref(`products/${productId}`);
-      const snapshot = await storageRef.put(image);
-      return await snapshot.ref.getDownloadURL();
+      const storageRef = ref(storage, `products/${productId}`);
+      const uploadResult = await uploadBytes(storageRef, image);
+      const imageUrl = await getDownloadURL(uploadResult.ref);
+      return imageUrl;
     } catch (error) {
       console.error(error);
       throw error;
@@ -94,7 +101,6 @@ const AdminPage = () => {
               <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
-
           <tbody>
             {products.map((product) => (
               <tr key={product.id}>
@@ -112,7 +118,9 @@ const AdminPage = () => {
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={() =>
-                      handleEditProduct(product.id, { title: "Updated Title" })
+                      handleEditProduct(product.id, {
+                        title: "Updated Title",
+                      })
                     }
                   >
                     Edit
@@ -123,6 +131,7 @@ const AdminPage = () => {
           </tbody>
         </table>
       </div>
+
       <form
         className="add-product-form mt-4"
         onSubmit={(e) => {
@@ -132,11 +141,10 @@ const AdminPage = () => {
       >
         <input
           type="file"
-          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, title: e.target.value })
-          }
+          className="text-navColor"
+          onChange={(e) => setImage(e.target.files[0])}
         />
+
         <input
           type="submit"
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
@@ -148,32 +156,3 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
-
-// jLnVPptToBkxGyzBr8LI
-// // Get the user's UID from Firebase Authentication
-// const uid = firebase.auth().currentUser.uid;
-
-// // Get a reference to the user's document in Cloud Firestore
-// const userRef = db.collection('users').doc(48TPH889R9dP9e1ReQWbVKl29Ku1);
-
-// // Fetch the user's data from Firestore
-// userRef.get()
-//   .then(doc => {
-//     if (doc.exists) {
-//       const userRole = doc.data().role;
-
-//       // Check the user's role and grant permissions
-//       if (userRole === 'admin') {
-//         // Show admin-only features
-//         console.log("Welcome, Admin!");
-//       } else {
-//         // Show regular user features
-//         console.log("Welcome, User!");
-//       }
-//     } else {
-//       console.log("No such user document!");
-//     }
-//   })
-//   .catch(error => {
-//     console.error("Error getting user document:", error);
-//   })
