@@ -3,7 +3,7 @@ import React from "react";
 function SearchInput({ handleinputChange }) {
   return (
     <>
-      <div className="mt-[62px] flex justify-center items-center relative">
+      <div className=" flex justify-center items-center relative">
         <input
           onChange={handleinputChange}
           type="text"
