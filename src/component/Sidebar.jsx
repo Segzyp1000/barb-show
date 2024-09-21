@@ -6,8 +6,10 @@ import Color from "./Color";
 function Sidebar({ handleChange }) {
   return (
     <>
-      <section className="hidden md:block shadow-lg border-black mt-6 p-14 bg-white">
-        <div className="text-2xl font-bold text-navColor">Sort By</div>
+      <section className=" md:block  hidden shadow-lg border-black p-14 bg-white">
+        <div className=" container text-2xl font-bold text-navColor ">
+          <p>Sort By</p>
+        </div>
         <div className="logo-container">
           <Category handleChange={handleChange} />
           <Price handleChange={handleChange} />

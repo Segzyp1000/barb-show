@@ -27,34 +27,37 @@ function Nav() {
   };
 
   return (
-    <div className="navb text-navColor block w-full bg-white">
-      <div className="flex justify-between items-center p-2 mx-0 md:mx-14">
-        <Link to="/">
-          <img src={Logo} alt="" className="w-[121px] md:w-[150px]" />
-        </Link>
-        <div className="flex flex-end space-x-3">
-          <Link to="/cart">
-            <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white px-1 mt-1">
-              <FaShoppingCart className="mr-1" />
-              {productCount}
-            </span>
+    <div className="navb  text-navColor block w-full bg-white">
+      <div className="container">
+        <div className="flex justify-between items-center p-2 mx-0 md:mx-14">
+          <Link to="/">
+            <img src={Logo} alt="" className="w-[121px] md:w-[150px]" />
           </Link>
-          <Link
-            to="/signin"
-            className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
-          >
-            {user ? (
-              <div>
-                <img src={user.googleURL} alt="" />
-                <button onClick={handleSignOut}>Sign out</button>
-              </div>
-            ) : (
-              <button>Sign in</button>
-            )}
-          </Link>
+          <div className="flex flex-end space-x-3">
+            <Link to="/cart">
+              <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white px-1 mt-1">
+                <FaShoppingCart className="mr-1" />
+                {productCount}
+              </span>
+            </Link>
+            <Link
+              to="/signin"
+              className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
+            >
+              {user ? (
+                <div>
+                  <img src={user.googleURL} alt="" />
+                  <button onClick={handleSignOut}>Sign out</button>
+                </div>
+              ) : (
+                <button>Sign in</button>
+              )}
+            </Link>
+          </div>
         </div>
+
+        <div className="border-b border-slate-300"></div>
       </div>
-      <div className="border-b border-slate-300"></div>
     </div>
   );
 }

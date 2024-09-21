@@ -6,7 +6,6 @@ import products from "../db/data";
 import Card from "../component/Card";
 import BackBtn from "../component/BackBtn";
 import Footer from "../component/Footer";
-import SearchInput from "../component/SearchInput";
 
 const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -74,16 +73,13 @@ const MainPage = () => {
 
   return (
     <div>
-      <SearchInput query={query} handleinputChange={handleinputChange} />
-
-      <div className="sty flex mx-3 md:mx-auto">
+      <div className="container flex mx-3 md:mx-auto">
         <Sidebar handleChange={handleChange} />
         <div>
           <Recommended handleClick={handleClick} />
           <Products result={result} />
         </div>
       </div>
-
       <BackBtn />
       <Footer />
     </div>

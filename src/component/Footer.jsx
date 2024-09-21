@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Footer({ handleinputChange }) {
   return (
-    <div className="flex flex-col w-auto mt-10 bg-navColor">
+    <div className=" w-full flex flex-col mt-10 bg-navColor">
       <div className="mt-10 mx-2 md:mx-20 flex justify-between">
         <div>
           <a href="">

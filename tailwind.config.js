@@ -13,6 +13,9 @@ export default {
       animations: {
         bounce: 'animate-bounce',
       },
+      container: {
+        center: true,
+      },
     
     },
   },
