@@ -36,7 +36,7 @@ const Login = () => {
     });
 
   return (
-    <div className="mt-40 mx-24">
+    <div className="flex justify-center items-center contain container mt-5 lg:mt-52">
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input

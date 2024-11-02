@@ -1,17 +1,16 @@
 import React from "react";
 
-function SearchInput({ handleinputChange }) {
+function SearchInput({ handleinputChange, query }) {
   return (
-    <>
-      <div className=" w-full flex justify-center items-center relative">
-        <input
-          onChange={handleinputChange}
-          type="text"
-          className="w-full mx-6 md:mx-12 bg-white text-black border-red-500  flex flex-start p-2"
-          placeholder="Search for different kinds of shoe"
-        />
-      </div>
-    </>
+    <div className=" bg-white mt-[5.3rem]">
+      <input
+        onChange={handleinputChange}
+        value={query}
+        type="text"
+        className="w-full text-navColor  p-3 border-2 border-gray-300 ring-slate-500 "
+        placeholder="Search for different kinds of shoe"
+      />
+    </div>
   );
 }
 

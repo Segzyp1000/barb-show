@@ -10,23 +10,13 @@ body {
         background: rgba(48, 47, 48, 0.067);
 }
 
-.sty {
-        width:90%;
-        
-}
+
 
 .blue-input  {
         color: #4e4e7a;
 }
 
-.navb {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-       
-      }
+
 
       input[type="radio"] {
         appearance: none;
@@ -43,4 +33,6 @@ body {
         height: 13px;
 
       }
+      
+   
       

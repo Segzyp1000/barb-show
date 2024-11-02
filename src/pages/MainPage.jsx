@@ -4,8 +4,7 @@ import Recommended from "../component/Recommended";
 import Products from "../component/Products";
 import products from "../db/data";
 import Card from "../component/Card";
-import BackBtn from "../component/BackBtn";
-import Footer from "../component/Footer";
+import SearchInput from "../component/SearchInput";
 
 const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -73,15 +72,14 @@ const MainPage = () => {
 
   return (
     <div>
-      <div className="container flex mx-3 md:mx-auto">
+      <SearchInput handleinputChange={handleinputChange} query={query} />
+      <div className="flex container">
         <Sidebar handleChange={handleChange} />
         <div>
           <Recommended handleClick={handleClick} />
           <Products result={result} />
         </div>
       </div>
-      <BackBtn />
-      <Footer />
     </div>
   );
 };

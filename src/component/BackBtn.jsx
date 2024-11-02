@@ -10,7 +10,7 @@ function BackBtn() {
   }, [location.pathname]);
 
   return (
-    <div className="flex mt-10 items-center justify-end">
+    <div className="flex mt-10 items-center justify-center">
       <button
         onClick={() => window.scrollTo(0, 0)}
         className="bg-slate-300 hover:bg-slate-50 text-white font-bold py-2 px-4 rounded animate-bounce"

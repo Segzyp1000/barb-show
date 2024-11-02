@@ -44,72 +44,76 @@ const Signin = () => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
-        <img src={Logo} alt="" className="w-[151px]" />
+    <div>
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex justify-center items-center contain container mt-24 lg:mt-52 "
+      >
+        <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
+          <img src={Logo} alt="" className="w-[151px]" />
 
-        <h2 className="text-3xl font-semibold leading-7 text-gray-900 mt-20">
-          Sign in
-        </h2>
+          <h2 className="text-3xl font-semibold leading-7 text-gray-900 mt-20">
+            Sign in
+          </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Email/Username
-            </label>
-            <div className="mt-2">
-              <input
-                type="text"
-                name="email"
-                id="email"
-                autoComplete="email"
-                className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="example@mail.com"
-                onChange={(e) => setEmail(e.target.value)}
-              />
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Email/Username
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  autoComplete="email"
+                  className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="example@mail.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Password
+              </label>
+              <div className="mt-2">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
             </div>
           </div>
-
-          <div className="sm:col-span-3">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Password
-            </label>
-            <div className="mt-2">
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button
+            onClick={signIn}
+            className="mt-5 bg-navColor p-5 font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400"
+          >
+            Sign in
+          </button>
+          <Link to="/register" className="text-navColor hover:bg-slate-50 mt-2">
+            click here to register
+          </Link>
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button
-          onClick={signIn}
-          className="mt-5 bg-navColor w-full font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400"
-        >
-          Sign in
-        </button>
-        <Link to="/register" className="text-navColor hover:bg-slate-50 mt-2">
-          click here to register
-        </Link>
+      </form>
+      <div className="flex justify-between items-center">
+        <img src={ads} alt="" className="w-[151px] mt-20 ml-auto md:ml-0" />
+        <img src={ads} alt="" className="hidden w-[151px] mt-20 md:flex" />
+        <img src={ads} alt="" className="hidden w-[151px] mt-20 md:flex" />
       </div>
-
-      <img
-        src={ads}
-        alt=""
-        className="flex justify-center items-center mx-auto pb-40 w-[151px] mt-20"
-      />
-    </form>
+    </div>
   );
 };
 

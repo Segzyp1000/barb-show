@@ -1,26 +1,31 @@
 import React from "react";
 import Logo2 from "../assets/Logo2.png";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import BackBtn from "./BackBtn";
 
 function Footer({ handleinputChange }) {
+  const location = useLocation();
+
+  if (location.pathname === "/signin" || location.pathname === "/register") {
+    return null;
+  }
+
   return (
-    <div className=" w-full flex flex-col mt-10 bg-navColor">
-      <div className="mt-10 mx-2 md:mx-20 flex justify-between">
-        <div>
-          <a href="">
-            <img src={Logo2} alt="" className="w-[121px]" />
-          </a>
-        </div>
-        <div>
-          <input
-            onChange={handleinputChange}
-            type="text"
-            placeholder="search for shoes"
-            className="bg-white text-black flex items-center p-1 rounded-lg"
-          />
-        </div>
+    <div className="flex flex-col bg-navColor container w-full">
+      <div className="mt-10 mx-auto md:mx-16 md:flex flex-wrap md:space-y-0 space-y-5 justify-between items-center overflow-hidden">
+        <a href="#">
+          <img src={Logo2} alt="logo" className="w-[121px]" />
+        </a>
+
+        <input
+          onChange={handleinputChange}
+          type="text"
+          placeholder="search for shoes"
+          className="bg-white text-black p-1 rounded-lg"
+        />
       </div>
-      <div className="flex justify-between space-x-3 text-white mt-10 md:w-4/5 w-auto  mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-5 mx-auto text-white mt-10 ">
         <ul className="space-y-2">
           <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
           <li className="text-[10px] md:text-[13px] font-light text-gray-300">
@@ -75,6 +80,7 @@ function Footer({ handleinputChange }) {
           </li>
         </ul>
       </div>
+      <BackBtn />
       <div className="text-slate-300 bg-blue-950 text-[12px] mt-10 flex justify-center items-center p-3 font-light">
         Copyright 2024. All Right Reserverd
       </div>

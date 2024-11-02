@@ -27,19 +27,13 @@ function Nav() {
   };
 
   return (
-    <div className="navb  text-navColor block w-full bg-white">
-      <div className="container">
-        <div className="flex justify-between items-center p-2 mx-0 md:mx-14">
+    <div className="fixed top-0 left-0 z-20  text-navColor p-2 bg-white w-full backdrop-blur-md ">
+      <div className="p-3">
+        <div className="flex justify-between  items-center px-5">
           <Link to="/">
-            <img src={Logo} alt="" className="w-[121px] md:w-[150px]" />
+            <img src={Logo} alt="" width={171} height={171} />
           </Link>
           <div className="flex flex-end space-x-3">
-            <Link to="/cart">
-              <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white px-1 mt-1">
-                <FaShoppingCart className="mr-1" />
-                {productCount}
-              </span>
-            </Link>
             <Link
               to="/signin"
               className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
@@ -50,13 +44,17 @@ function Nav() {
                   <button onClick={handleSignOut}>Sign out</button>
                 </div>
               ) : (
-                <button>Sign in</button>
+                <button className="p-2 text-[1rem]">Sign in</button>
               )}
+            </Link>
+            <Link to="/cart">
+              <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white p-3 mt-1">
+                <FaShoppingCart className="mr-1" />
+                {productCount}
+              </span>
             </Link>
           </div>
         </div>
-
-        <div className="border-b border-slate-300"></div>
       </div>
     </div>
   );

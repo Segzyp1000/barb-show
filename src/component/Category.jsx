@@ -4,7 +4,7 @@ import Input from "./Input";
 function Category({ handleChange }) {
   return (
     <div className="category text-navColor  mt-5">
-      <div className="font-semibold ">Categories</div>
+      <div className="font-semibold gap-4 ">Categories</div>
       <label>
         <input
           onChange={handleChange}
