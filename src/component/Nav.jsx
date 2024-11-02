@@ -31,7 +31,12 @@ function Nav() {
       <div className="p-3">
         <div className="flex justify-between  items-center px-5">
           <Link to="/">
-            <img src={Logo} alt="" width={171} height={171} />
+            <img
+              src={Logo}
+              alt=""
+              height={151}
+              className="w-[6rem] md:w-[10rem]"
+            />
           </Link>
           <div className="flex flex-end space-x-3">
             <Link

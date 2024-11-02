@@ -44,12 +44,12 @@ const Signin = () => {
   };
 
   return (
-    <div>
+    <div className="py-12">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="flex justify-center items-center contain container mt-24 lg:mt-52 "
+        className="flex justify-center items-center contain container  pb-12"
       >
-        <div className="border-b border-gray-900/10 p-10 m-auto mt-20 w-4/5 bg-white ">
+        <div className="border-b border-gray-900/10 p-10 pb-12 my-40 max-2xl:my-20 w-4/5 bg-white ">
           <img src={Logo} alt="" className="w-[151px]" />
 
           <h2 className="text-3xl font-semibold leading-7 text-gray-900 mt-20">
@@ -103,9 +103,9 @@ const Signin = () => {
           >
             Sign in
           </button>
-          <Link to="/register" className="text-navColor hover:bg-slate-50 mt-2">
-            click here to register
-          </Link>
+          <div className="text-navColor hover:bg-slate-50 pt-5">
+            <Link to="/register">click here to register</Link>
+          </div>
         </div>
       </form>
       <div className="flex justify-between items-center">

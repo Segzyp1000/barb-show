@@ -8,7 +8,7 @@ function CartPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-12 mt-20 mb-5 w-3/4 block space-y-12">
+    <div className="container mx-12 mt-20 mb-5 w-3/4 block py-12">
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
@@ -60,17 +60,16 @@ function CartPage() {
             <p className="font-bold text-[19px]">Total:</p>
             <p className="font-bold text-[19px]">₦{cart.getTotalCost()}</p>
           </div>
-
-          <button
-            className="bg-navColor text-white px-4 mt-5 rounded p-2"
-            onClick={() => navigate("/checkout")}
-          >
-            Proceed to Checkout
-          </button>
         </div>
       ) : (
         <p className="font-normal">Your cart is empty.</p>
       )}
+      <button
+        className="bg-navColor text-white px-4 mt-5 rounded p-2"
+        onClick={() => navigate("/checkout")}
+      >
+        Proceed to Checkout
+      </button>
     </div>
   );
 }

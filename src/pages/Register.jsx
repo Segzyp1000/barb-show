@@ -34,8 +34,8 @@ const Register = () => {
   };
 
   return (
-    <form type="POST">
-      <div className="border-b border-gray-900/10 p-10 m-auto w-4/5 bg-white contain container mt-40 lg:mt-52">
+    <form type="POST" className="py-12">
+      <div className="border-b border-gray-900/10 p-10 m-auto w-4/5 bg-white contain container pb-12 ">
         <p className="text-3xl font-bold text-gray-900">Sign up</p>
         <h1 className=" font-md leading-7 text-gray-900 mt-20">
           Fill your information to register
