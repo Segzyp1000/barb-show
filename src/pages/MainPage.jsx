@@ -73,7 +73,7 @@ const MainPage = () => {
   return (
     <div>
       <SearchInput handleinputChange={handleinputChange} query={query} />
-      <div className="flex container">
+      <div className="flex container w-full">
         <Sidebar handleChange={handleChange} />
         <div>
           <Recommended handleClick={handleClick} />

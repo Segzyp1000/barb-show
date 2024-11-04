@@ -21,7 +21,11 @@ function CartPage() {
                 className="cart-item flex justify-between flex-wrap  mb-4 py-7"
               >
                 <div className="flex space-x-2 items-center">
-                  <img src={item.img} alt={item.title} className="w-20 h-20" />
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-20 h-20 p-7"
+                  />
                   <div>
                     <h2 className="font-bold">{item.title}</h2>
                     <h2 className="font-normal">Price: ₦{item.newPrice}</h2>
@@ -60,16 +64,19 @@ function CartPage() {
             <p className="font-bold text-[19px]">Total:</p>
             <p className="font-bold text-[19px]">₦{cart.getTotalCost()}</p>
           </div>
+
+          <div>
+            <button
+              className="bg-navColor text-white px-4 mt-5 rounded p-2 hover:bg-slate-700 cursor-pointer"
+              onClick={() => navigate("/checkout")}
+            >
+              Proceed to Checkout
+            </button>
+          </div>
         </div>
       ) : (
         <p className="font-normal">Your cart is empty.</p>
       )}
-      <button
-        className="bg-navColor text-white px-4 mt-5 rounded p-2"
-        onClick={() => navigate("/checkout")}
-      >
-        Proceed to Checkout
-      </button>
     </div>
   );
 }

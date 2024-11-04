@@ -5,9 +5,9 @@ import { CartContext } from "../CartContext";
 function Card({ id, img, title, star, newPrice, prevPrice }) {
   const cart = useContext(CartContext);
   return (
-    <section className="container mt-10 space-y-3 shadow-lg border-gray-950 ">
-      <Link to={`/details/${title}`} className="h-[75px] flex justify-center">
-        <img src={img} alt={title} className="w-auto" />
+    <section className="mt-10 space-y-3 shadow-lg border-gray-950 ">
+      <Link to={`/details/${title}`} className="flex justify-center h-[75px] ">
+        <img src={img} alt={title} width={75} height={75} className="w-auto" />
       </Link>
       <div className="card-details text-[13px] p-3">
         <h3 className="ml-1 text-[12px] md:text-[15px] lg:text-[17px] max-lg:text-[19px] leading-5">
