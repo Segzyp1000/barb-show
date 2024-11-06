@@ -6,7 +6,7 @@ import Color from "./Color";
 function Sidebar({ handleChange }) {
   return (
     <>
-      <section className="md:block hidden shadow-lg border-black p-10 bg-white">
+      <section className="md:block hidden shadow-lg border-black p-16 bg-white">
         <div className="text-2xl font-bold text-navColor ">
           <p>Sort By</p>
         </div>

@@ -17,9 +17,7 @@ export default {
       container: {
        center:"max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]"
       },
-      contain: {
-        center: true,
-      },
+     
     },
   },
   plugins: [],

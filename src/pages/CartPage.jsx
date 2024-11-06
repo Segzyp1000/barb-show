@@ -8,7 +8,7 @@ function CartPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-12 mt-20 mb-5 w-3/4 block py-12">
+    <div className="container mx-7 md:mx-auto mt-20 mb-5 py-12 ">
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>

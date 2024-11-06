@@ -7,13 +7,17 @@ import BackBtn from "./BackBtn";
 function Footer({ handleinputChange }) {
   const location = useLocation();
 
-  if (location.pathname === "/signin" || location.pathname === "/register") {
+  if (
+    location.pathname === "/signin" ||
+    location.pathname === "/register" ||
+    location.pathname === "/cart"
+  ) {
     return null;
   }
 
   return (
-    <div className="bg-navColor container">
-      <div className="flex flex-col">
+    <div className="bg-navColor">
+      <div className="flex flex-col container">
         <div className="mt-10 mx-auto md:mx-16 md:flex flex-wrap md:space-y-0 space-y-5 justify-between items-center overflow-hidden">
           <a href="#">
             <img src={Logo2} alt="logo" className="w-[121px]" />
@@ -82,9 +86,9 @@ function Footer({ handleinputChange }) {
           </ul>
         </div>
         <BackBtn />
-        <div className="text-slate-300 bg-blue-950 text-[12px] mt-10 flex justify-center items-center p-3 font-light">
-          Copyright 2024. All Right Reserverd
-        </div>
+      </div>
+      <div className="text-slate-300 bg-blue-950 text-[12px] mt-10 flex justify-center items-center p-3 font-light">
+        Copyright 2024. All Right Reserverd
       </div>
     </div>
   );

@@ -46,10 +46,12 @@ function Nav() {
               {user ? (
                 <div>
                   <img src={user.googleURL} alt="" />
-                  <button onClick={handleSignOut}>Sign out</button>
+                  <button className="p-4 text-[1rem]" onClick={handleSignOut}>
+                    Sign out
+                  </button>
                 </div>
               ) : (
-                <button className="p-2 text-[1rem]">Sign in</button>
+                <button className="p-4 text-[1rem]">Sign in</button>
               )}
             </Link>
             <Link to="/cart">
