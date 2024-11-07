@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Route,
   createBrowserRouter,
@@ -21,6 +21,9 @@ import CartProvider from "./CartContext";
 import { AuthProvider } from "./AuthContext";
 import RequireAuth from "./RequireAuth";
 import AdminPage from "./admin/AdminPage";
+import { CartContext } from "./CartContext";
+
+import { useContext } from "react";
 
 function App() {
   const router = createBrowserRouter(
@@ -42,9 +45,19 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Route>
     )
   );
+
+  const { currentPage, setCurrentPage } = useContext(CartContext);
+
+  useEffect(() => {
+    const storedPage = localStorage.getItem("current-page");
+    if (storedPage && window.location.pathname !== storedPage) {
+      window.location.href = storedPage;
+    }
+  }, []);
 
   return (
     <AuthProvider>
