@@ -4,7 +4,7 @@ import product from "./db/data";
 const STORAGE_KEY = "cart-products";
 const PAGE_KEY = "current-page";
 
-export const CartContext = createContext({
+const CartContext = createContext({
   items: [],
   getProductQuantity: () => {},
   addOneToCart: () => {},
@@ -16,7 +16,7 @@ export const CartContext = createContext({
   setCurrentPage: () => {},
 });
 
-export const CartProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState(
     JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
   );
@@ -30,10 +30,7 @@ export const CartProvider = ({ children }) => {
   }, [cartProducts, currentPage]);
 
   const getProductQuantity = (id) => {
-    const quantity = cartProducts.find(
-      (product) => product.id === id
-    )?.quantity;
-    return quantity || 0;
+    return cartProducts.find((product) => product.id === id)?.quantity || 0;
   };
 
   const addOneToCart = (id, img, title, newPrice) => {
@@ -70,6 +67,7 @@ export const CartProvider = ({ children }) => {
     }
     setCurrentPage(window.location.pathname);
   };
+
   const deleteFromCart = (id) => {
     setCartProducts((cartProducts) =>
       cartProducts.filter((currentProduct) => currentProduct.id !== id)
@@ -88,7 +86,7 @@ export const CartProvider = ({ children }) => {
     return totalCost;
   };
 
-  const contextVakue = {
+  const contextValue = {
     items: cartProducts,
     getProductQuantity,
     addOneToCart,
@@ -96,10 +94,12 @@ export const CartProvider = ({ children }) => {
     deleteFromCart,
     setCartProducts,
     getTotalCost,
+    currentPage,
+    setCurrentPage,
   };
 
   return (
-    <CartContext.Provider value={contextVakue}>{children}</CartContext.Provider>
+    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 };
 
