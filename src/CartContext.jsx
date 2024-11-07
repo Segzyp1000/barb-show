@@ -1,5 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import product from "./db/data";
+
+const STORAGE_KEY = "cart-products";
 
 export const CartContext = createContext({
   items: [],
@@ -12,16 +14,19 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState(
+    JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   const getProductQuantity = (id) => {
     const quantity = cartProducts.find(
       (product) => product.id === id
     )?.quantity;
-    if (quantity === 0) {
-      return 0;
-    }
-    return quantity;
+    return quantity || 0;
   };
 
   const addOneToCart = (id, img, title, newPrice) => {
@@ -59,9 +64,7 @@ export const CartProvider = ({ children }) => {
 
   const deleteFromCart = (id) => {
     setCartProducts((cartProducts) =>
-      cartProducts.filter((currentProduct) => {
-        return currentProduct.id !== id;
-      })
+      cartProducts.filter((currentProduct) => currentProduct.id !== id)
     );
   };
 

@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { useNavigate } from "react-router-dom";
 
