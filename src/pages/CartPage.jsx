@@ -22,10 +22,7 @@ function CartPage() {
         <div className="cart-container flex flex-col ">
           {cart.items.map((item) => (
             <div className="border-b px-4 border-slate-400">
-              <div
-                key={item.id}
-                className="cart-item flex justify-between flex-wrap  mb-4 py-7"
-              >
+              <div className="cart-item flex justify-between flex-wrap  mb-4 py-7">
                 <div className="flex space-x-2 items-center">
                   <img
                     src={item.img}

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import product from "./db/data";
+import { updateCurrentUser } from "firebase/auth";
 
 const STORAGE_KEY = "cart-products";
 const PAGE_KEY = "current-page";
@@ -12,11 +13,11 @@ export const CartContext = createContext({
   deleteFromCart: () => {},
   getTotalCost: () => {},
   setCartProducts: () => {},
-  currentPage: "",
   setCurrentPage: () => {},
+  updateCurrentUser,
 });
 
-export const CartProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [cartProducts, setCartProducts] = useState(
     JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
   );
@@ -30,10 +31,11 @@ export const CartProvider = ({ children }) => {
   }, [cartProducts, currentPage]);
 
   const getProductQuantity = (id) => {
-    const quantity = cartProducts.find(
-      (product) => product.id === id
-    )?.quantity;
-    return quantity || 0;
+    return cartProducts.find((product) => product.id === id)?.quantity || 0;
+  };
+
+  const updateCurrentPage = (page) => {
+    setCurrentPage(page);
   };
 
   const addOneToCart = (id, img, title, newPrice) => {
@@ -70,6 +72,7 @@ export const CartProvider = ({ children }) => {
     }
     setCurrentPage(window.location.pathname);
   };
+
   const deleteFromCart = (id) => {
     setCartProducts((cartProducts) =>
       cartProducts.filter((currentProduct) => currentProduct.id !== id)
@@ -96,8 +99,8 @@ export const CartProvider = ({ children }) => {
     deleteFromCart,
     setCartProducts,
     getTotalCost,
-    currentPage,
     setCurrentPage,
+    updateCurrentPage,
   };
 
   return (
