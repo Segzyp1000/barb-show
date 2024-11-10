@@ -1,17 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../CartContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CartPage() {
   const cart = useContext(CartContext);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/cart" && cart.items.length === 0) {
-      return;
-    }
-  }, [location, cart.items, navigate]);
 
   return (
     <div className="container mx-auto px-9 mt-20 mb-5 py-12 ">

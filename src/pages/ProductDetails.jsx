@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+
+import { useParams, Link } from "react-router-dom";
 import data from "../db/data";
 
 function ProductDetails() {
   const { title } = useParams();
   const product = data.find((product) => product.title === title);
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/details") {
-      return;
-    }
-  }, [location]);
 
   return (
     <div className="mx-auto p-12 bg-white mt-20 container">
