@@ -8,13 +8,13 @@ function CartPage() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/cart") {
-      // Handle refresh
+    if (location.pathname === "/cart" && cart.items.length === 0) {
+      return;
     }
-  }, [location]);
+  }, [location, cart.items, navigate]);
 
   return (
-    <div className="container mx-7 md:mx-auto mt-20 mb-5 py-12 ">
+    <div className="container mx-auto px-9 mt-20 mb-5 py-12 ">
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
@@ -22,7 +22,10 @@ function CartPage() {
         <div className="cart-container flex flex-col ">
           {cart.items.map((item) => (
             <div className="border-b px-4 border-slate-400">
-              <div className="cart-item flex justify-between flex-wrap  mb-4 py-7">
+              <div
+                key={item.id}
+                className="cart-item flex justify-between flex-wrap  mb-4 py-7"
+              >
                 <div className="flex space-x-2 items-center">
                   <img
                     src={item.img}

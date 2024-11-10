@@ -5,7 +5,7 @@ import { CartContext } from "../CartContext";
 function Card({ id, img, title, star, newPrice, prevPrice }) {
   const cart = useContext(CartContext);
   return (
-    <section className="mt-10 space-y-3 shadow-lg border-gray-950 ">
+    <section className="mt-10 space-y-3 border-gray-950 ">
       <Link to={`/details/${title}`} className="flex justify-center h-[75px] ">
         <img src={img} alt={title} width={75} height={75} className="w-auto" />
       </Link>

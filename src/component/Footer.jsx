@@ -7,11 +7,7 @@ import BackBtn from "./BackBtn";
 function Footer({ handleinputChange }) {
   const location = useLocation();
 
-  if (
-    location.pathname === "/signin" ||
-    location.pathname === "/register" ||
-    location.pathname === "/cart"
-  ) {
+  if (location.pathname === "/signin" || location.pathname === "/register") {
     return null;
   }
 

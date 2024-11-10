@@ -35,7 +35,7 @@ function Nav() {
               src={Logo}
               alt=""
               height={151}
-              className="w-[6rem] md:w-[10rem]"
+              className="w-[7rem] md:w-[10rem]"
             />
           </Link>
           <div className="flex flex-end space-x-3">
@@ -51,7 +51,9 @@ function Nav() {
                   </button>
                 </div>
               ) : (
-                <button className="p-4 text-[1rem]">Sign in</button>
+                <button className="p-3 md:p-4 text-[0.7rem] text-center md:text-[1rem]">
+                  Sign in
+                </button>
               )}
             </Link>
             <Link to="/cart">

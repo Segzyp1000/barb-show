@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 import product from "./db/data";
-import { updateCurrentUser } from "firebase/auth";
 
 const STORAGE_KEY = "cart-products";
 const PAGE_KEY = "current-page";
@@ -14,7 +13,6 @@ export const CartContext = createContext({
   getTotalCost: () => {},
   setCartProducts: () => {},
   setCurrentPage: () => {},
-  updateCurrentUser,
 });
 
 const CartProvider = ({ children }) => {
@@ -39,21 +37,14 @@ const CartProvider = ({ children }) => {
   };
 
   const addOneToCart = (id, img, title, newPrice) => {
-    const existingProduct = cartProducts.find((product) => product.id === id);
-    if (existingProduct) {
-      setCartProducts(
-        cartProducts.map((product) =>
-          product.id === id
-            ? { ...product, quantity: product.quantity + 1 }
-            : product
-        )
-      );
-    } else {
-      setCartProducts([
-        ...cartProducts,
-        { id, img, title, newPrice, quantity: 1 },
-      ]);
-    }
+    const quantity = getProductQuantity(id);
+    setCartProducts((prevProducts) =>
+      prevProducts.find((product) => product.id === id)
+        ? prevProducts.map((product) =>
+            product.id === id ? { ...product, quantity: quantity + 1 } : product
+          )
+        : [...prevProducts, { id, img, title, newPrice, quantity: 1 }]
+    );
     setCurrentPage(window.location.pathname);
   };
 
@@ -62,11 +53,9 @@ const CartProvider = ({ children }) => {
     if (quantity === 1) {
       deleteFromCart(id);
     } else {
-      setCartProducts(
-        cartProducts.map((product) =>
-          product.id === id
-            ? { ...product, quantity: product.quantity - 1 }
-            : product
+      setCartProducts((prevProducts) =>
+        prevProducts.map((product) =>
+          product.id === id ? { ...product, quantity: quantity - 1 } : product
         )
       );
     }
@@ -74,8 +63,8 @@ const CartProvider = ({ children }) => {
   };
 
   const deleteFromCart = (id) => {
-    setCartProducts((cartProducts) =>
-      cartProducts.filter((currentProduct) => currentProduct.id !== id)
+    setCartProducts((prevProducts) =>
+      prevProducts.filter((product) => product.id !== id)
     );
     setCurrentPage(window.location.pathname);
   };
