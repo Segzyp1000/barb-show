@@ -13,7 +13,11 @@ function Nav() {
   const location = useLocation();
   const [user, loading] = useAuthState(auth);
 
-  if (location.pathname === "/signin" || location.pathname === "/register") {
+  if (
+    location.pathname === "/signin" ||
+    location.pathname === "/register" ||
+    location.pathname === "/checkout"
+  ) {
     return null;
   }
 
