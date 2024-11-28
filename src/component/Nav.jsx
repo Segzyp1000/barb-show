@@ -42,7 +42,7 @@ function Nav() {
               className="w-[7rem] md:w-[10rem]"
             />
           </Link>
-          <div className="flex flex-end space-x-3">
+          <div className="flex flex-end">
             <Link
               to="/signin"
               className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
@@ -50,18 +50,21 @@ function Nav() {
               {user ? (
                 <div>
                   <img src={user.googleURL} alt="" />
-                  <button className="p-4 text-[1rem]" onClick={handleSignOut}>
+                  <button
+                    className="p-1 md:p-4 text-[0.7rem] md:text-[1rem]"
+                    onClick={handleSignOut}
+                  >
                     Sign out
                   </button>
                 </div>
               ) : (
-                <button className="p-3 md:p-4 text-[0.7rem] text-center md:text-[1rem]">
+                <button className="p-1 md:p-4 text-[0.7rem] text-center md:text-[1rem] overflow-x-hidden">
                   Sign in
                 </button>
               )}
             </Link>
             <Link to="/cart">
-              <span className="flex rounded-xl bg-navColor hover:bg-slate-200 text-white p-3 mt-1">
+              <span className="flex rounded-lg bg-navColor hover:bg-slate-200 text-white p-1 md:p-3 mt-1">
                 <FaShoppingCart className="mr-1" />
                 {productCount}
               </span>

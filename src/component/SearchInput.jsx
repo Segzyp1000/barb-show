@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchInput({ handleinputChange, query }) {
   return (
-    <div className=" bg-white mt-[6.1rem] ">
+    <div className=" bg-white mt-[4.7rem] md:mt-[6rem] ">
       <input
         onChange={handleinputChange}
         value={query}
