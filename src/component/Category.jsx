@@ -13,7 +13,7 @@ function Category({ handleChange }) {
           name="test"
           style={{ backgroundColor: "color", border: "solid 1px #000" }}
         />
-        <span className="checkmark px-1"></span>All
+        <span className="checkmark px-1 mt-1"></span>All
       </label>
 
       <Input
