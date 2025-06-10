@@ -60,13 +60,15 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider>
-      <CartProvider>
-        <div>
-          <RouterProvider router={router} />
-        </div>
-      </CartProvider>
-    </AuthProvider>
+    <div className="App">
+      <AuthProvider>
+        <CartProvider>
+          <div>
+            <RouterProvider router={router} />
+          </div>
+        </CartProvider>
+      </AuthProvider>
+    </div>
   );
 }
 

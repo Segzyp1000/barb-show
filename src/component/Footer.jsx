@@ -28,7 +28,7 @@ function Footer({ handleinputChange }) {
             onChange={handleinputChange}
             type="text"
             placeholder="search for shoes"
-            className="bg-white text-black p-1 rounded-lg"
+            className="bg-white text-black p-3 w-auto rounded-lg"
           />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-5 mx-auto text-white mt-10">
