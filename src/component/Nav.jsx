@@ -39,13 +39,13 @@ function Nav() {
               src={Logo}
               alt=""
               height={151}
-              className="w-[7rem] md:w-[10rem]"
+              className="w-[7rem] md:w-[10rem] transition-transform duration-300 ease-in-out hover:scale-110"
             />
           </Link>
-          <div className="flex gap-5 flex-end">
+          <div className="flex gap-2 md:gap-5 flex-end">
             <Link
               to="/signin"
-              className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
+              className="bg-black text-white px-1 rounded-lg hover:bg-gray-500"
             >
               {user ? (
                 <div>
@@ -64,7 +64,7 @@ function Nav() {
               )}
             </Link>
             <Link to="/cart">
-              <span className="flex rounded-lg bg-navColor hover:bg-slate-200 text-white p-1 md:p-4 mt-1">
+              <span className="flex rounded-lg bg-navColor hover:bg-gray-500 text-white p-1 md:p-4 mt-1">
                 <FaShoppingCart className="mr-1" />
                 {productCount}
               </span>

@@ -1,10 +1,9 @@
-import React from "react";
 import Logo2 from "../assets/Logo2.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BackBtn from "./BackBtn";
 
-function Footer({ handleinputChange }) {
+function Footer({ handleinputChange, query }) {
   const location = useLocation();
 
   if (
@@ -19,16 +18,19 @@ function Footer({ handleinputChange }) {
   return (
     <div className="bg-navColor">
       <div className="flex flex-col container">
-        <div className="mt-10 mx-auto md:mx-16 md:flex flex-wrap md:space-y-0 space-y-5 justify-between items-center overflow-hidden">
+        <div className="mt-10 mx-16 flex space-y-0  justify-between items-center overflow-hidden">
           <a href="#">
-            <img src={Logo2} alt="logo" className="w-[121px]" />
+            <img src={Logo2} alt="logo" className="w-[121px] md:block hidden" />
           </a>
 
           <input
             onChange={handleinputChange}
+            value={query}
+            autoFocus
             type="text"
+            name="search"
             placeholder="search for shoes"
-            className="bg-white text-black p-3 w-auto rounded-lg"
+            className="bg-white text-black p-3 w-72 md:w-auto rounded-lg"
           />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-5 mx-auto text-white mt-10">

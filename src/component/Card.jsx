@@ -6,7 +6,10 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
   const cart = useContext(CartContext);
   return (
     <section className="mt-10 space-y-3 border-gray-950 ">
-      <Link to={`/details/${title}`} className="flex justify-center h-[75px] ">
+      <Link
+        to={`/details/${title}`}
+        className="flex justify-center h-[75px] transition-transform duration-300 ease-in-out hover:scale-110"
+      >
         <img src={img} alt={title} width={75} height={75} className="w-auto" />
       </Link>
       <div className="card-details text-[13px] p-5">
