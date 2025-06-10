@@ -42,7 +42,7 @@ function Nav() {
               className="w-[7rem] md:w-[10rem]"
             />
           </Link>
-          <div className="flex flex-end">
+          <div className="flex gap-5 flex-end">
             <Link
               to="/signin"
               className="bg-black text-white px-1 rounded-lg hover:bg-slate-300"
@@ -64,7 +64,7 @@ function Nav() {
               )}
             </Link>
             <Link to="/cart">
-              <span className="flex rounded-lg bg-navColor hover:bg-slate-200 text-white p-1 md:p-3 mt-1">
+              <span className="flex rounded-lg bg-navColor hover:bg-slate-200 text-white p-1 md:p-4 mt-1">
                 <FaShoppingCart className="mr-1" />
                 {productCount}
               </span>
