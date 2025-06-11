@@ -45,6 +45,7 @@ body {
         width: 13px;
         height: 13px;
         border-radius: 100%;
+        cursor: pointer;
         margin-top: 6px;
         border: 1px solid #2a0c47; /* or any other color */
         background-color: transparent; /* or any other color */

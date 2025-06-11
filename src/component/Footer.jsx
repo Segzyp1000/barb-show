@@ -2,8 +2,11 @@ import Logo2 from "../assets/Logo2.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BackBtn from "./BackBtn";
+import React, { useContext } from "react";
+import { CartContext } from "../CartContext";
 
-function Footer({ handleinputChange, query }) {
+function Footer() {
+  const { query, handleInputChange } = useContext(CartContext);
   const location = useLocation();
 
   if (
@@ -18,19 +21,21 @@ function Footer({ handleinputChange, query }) {
   return (
     <div className="bg-navColor">
       <div className="flex flex-col container">
-        <div className="mt-10 mx-16 flex space-y-0  justify-between items-center overflow-hidden">
-          <a href="#">
-            <img src={Logo2} alt="logo" className="w-[121px] md:block hidden" />
+        <div className="mt-10 flex flex-col items-center md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mx-5">
+          {/* Logo: only visible on medium (md) and larger screens */}
+          <a href="#" className="hidden md:block">
+            <img src={Logo2} alt="logo" className="w-[121px]" />
           </a>
 
+          {/* Search input: always centered on mobile, right-aligned on desktop */}
           <input
-            onChange={handleinputChange}
+            onChange={handleInputChange}
             value={query}
             autoFocus
             type="text"
             name="search"
-            placeholder="search for shoes"
-            className="bg-white text-black p-3 w-72 md:w-auto rounded-lg"
+            placeholder="Search for shoes"
+            className="bg-white text-black p-3 w-full max-w-sm rounded-lg"
           />
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 px-5 mx-auto text-white mt-10">

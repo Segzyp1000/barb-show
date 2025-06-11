@@ -5,43 +5,47 @@ const STORAGE_KEY = "cart-products";
 
 export const CartContext = createContext({
   items: [],
+  query: "",
   getProductQuantity: () => {},
   addOneToCart: () => {},
   removeOneFromCart: () => {},
   deleteFromCart: () => {},
   getTotalCost: () => {},
   setCartProducts: () => {},
+  handleInputChange: () => {},
 });
 
 export const CartProvider = ({ children }) => {
+  // State
   const [cartProducts, setCartProducts] = useState(
     JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
   );
+  const [query, setQuery] = useState("");
 
+  // Persist cart in localStorage
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cartProducts));
   }, [cartProducts]);
 
+  // === Cart Logic ===
   const getProductQuantity = (id) => {
-    const quantity = cartProducts.find(
-      (product) => product.id === id
-    )?.quantity;
-    return quantity || 0;
+    const item = cartProducts.find((product) => product.id === id);
+    return item?.quantity || 0;
   };
 
   const addOneToCart = (id, img, title, newPrice) => {
-    const existingProduct = cartProducts.find((product) => product.id === id);
-    if (existingProduct) {
-      setCartProducts(
-        cartProducts.map((product) =>
+    const exists = cartProducts.find((product) => product.id === id);
+    if (exists) {
+      setCartProducts((prev) =>
+        prev.map((product) =>
           product.id === id
             ? { ...product, quantity: product.quantity + 1 }
             : product
         )
       );
     } else {
-      setCartProducts([
-        ...cartProducts,
+      setCartProducts((prev) => [
+        ...prev,
         { id, img, title, newPrice, quantity: 1 },
       ]);
     }
@@ -52,8 +56,8 @@ export const CartProvider = ({ children }) => {
     if (quantity === 1) {
       deleteFromCart(id);
     } else {
-      setCartProducts(
-        cartProducts.map((product) =>
+      setCartProducts((prev) =>
+        prev.map((product) =>
           product.id === id
             ? { ...product, quantity: product.quantity - 1 }
             : product
@@ -63,30 +67,32 @@ export const CartProvider = ({ children }) => {
   };
 
   const deleteFromCart = (id) => {
-    setCartProducts((cartProducts) =>
-      cartProducts.filter((currentProduct) => currentProduct.id !== id)
-    );
+    setCartProducts((prev) => prev.filter((product) => product.id !== id));
   };
 
   const getTotalCost = () => {
-    let totalCost = 0;
-    cartProducts.forEach((cartItem) => {
-      const productData = product.find((product) => product.id === cartItem.id);
-      if (productData && productData.newPrice) {
-        totalCost += productData.newPrice * cartItem.quantity;
-      }
-    });
-    return totalCost;
+    return cartProducts.reduce((total, item) => {
+      const productData = product.find((p) => p.id === item.id);
+      return total + (productData?.newPrice || 0) * item.quantity;
+    }, 0);
   };
 
+  // === Search Input Handler ===
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  // === Context Value ===
   const contextValue = {
     items: cartProducts,
+    query,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,
     deleteFromCart,
     getTotalCost,
     setCartProducts,
+    handleInputChange,
   };
 
   return (

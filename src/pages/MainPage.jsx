@@ -1,33 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Sidebar from "../component/Sidebar";
 import Recommended from "../component/Recommended";
 import Products from "../component/Products";
 import products from "../db/data";
 import Card from "../component/Card";
 import SearchInput from "../component/SearchInput";
+import { CartContext } from "../CartContext";
 
 const MainPage = () => {
+  const { query } = useContext(CartContext); // Use query from context
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  // input filter
-  const [query, setQuery] = useState("");
-
-  const handleinputChange = (event) => {
-    setQuery(event.target.value);
-  };
-
-  const filterItems = products.filter(
-    (product) =>
-      product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !==
-      -1
-  );
 
   // radio filter
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  //button filter
+  // button filter
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -35,13 +24,15 @@ const MainPage = () => {
   function filteredData(products, selected, query) {
     let filteredProducts = products;
 
-    //filtering input items
+    // Filtering input items
     if (query) {
-      filteredProducts = filterItems;
+      filteredProducts = products.filter(
+        (product) =>
+          product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
     }
 
-    //selected Filter
-
+    // Selected Filter
     if (selected) {
       filteredProducts = filteredProducts.filter(
         ({ category, color, company, newPrice, title }) =>
@@ -52,10 +43,11 @@ const MainPage = () => {
           newPrice === selected
       );
     }
+
     return filteredProducts.map(
       ({ id, img, title, star, reviews, newPrice, prevPrice }) => (
         <Card
-          key={Math.random()}
+          key={id}
           id={id}
           img={img}
           title={title}
@@ -72,7 +64,7 @@ const MainPage = () => {
 
   return (
     <div>
-      <SearchInput handleinputChange={handleinputChange} query={query} />
+      <SearchInput />
       <div className="flex container w-full">
         <Sidebar handleChange={handleChange} />
         <div>
