@@ -51,7 +51,7 @@ function Nav() {
                 <div>
                   <img src={user.googleURL} alt="" />
                   <button
-                    className="p-4 md:p-2 text-center overflow-x-hidden"
+                    className="p-2 md:p-4 text-center overflow-x-hidden"
                     onClick={handleSignOut}
                   >
                     Sign out
