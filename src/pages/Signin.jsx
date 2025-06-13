@@ -70,7 +70,7 @@ const Signin = () => {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-200 shadow-sm placeholder:text-[16px] sm:text-sm sm:leading-6"
+                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-800 shadow-sm placeholder:text-[16px] sm:text-sm sm:leading-6"
                   placeholder="example@mail.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -91,7 +91,7 @@ const Signin = () => {
                   id="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-200 shadow-sm   placeholder:text-[16px] sm:text-sm sm:leading-6"
+                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-800 shadow-sm   placeholder:text-[16px]  sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
