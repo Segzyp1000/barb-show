@@ -24,7 +24,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-white mt-40 py-36">
+    <div className="checkout container mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-white mt-40 py-36">
       <h1 className="text-3xl font-bold mb-4">Checkout</h1>
       <div className="flex flex-wrap -mx-3 mb-6">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Sidebar from "../component/Sidebar";
 import Recommended from "../component/Recommended";
 import Products from "../component/Products";

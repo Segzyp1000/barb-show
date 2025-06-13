@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import data from "../db/data";
 
@@ -7,7 +6,7 @@ function ProductDetails() {
   const product = data.find((product) => product.title === title);
 
   return (
-    <div className="mx-auto p-12 bg-white mt-20 container">
+    <div className="product mx-auto p-12 bg-white mt-20 container">
       <div>
         <Link to="/" className=" text-navColor  p-5">
           Back to product page

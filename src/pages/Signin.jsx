@@ -47,20 +47,20 @@ const Signin = () => {
     <div className="py-12">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="flex justify-center items-center contain container  pb-12"
+        className="container flex flex-col items-center justify-center m-12 p-10 w-full md:max-w-[70%] mx-auto"
       >
-        <div className="border-b border-gray-900/10 p-10 pb-12 my-40 max-2xl:my-20 w-4/5 bg-white ">
+        <div className="w-full bg-white p-7 space-y-10">
           <img src={Logo} alt="" className="w-[151px]" />
 
           <h2 className="text-3xl font-semibold leading-7 text-gray-900 mt-20">
             Sign in
           </h2>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 flex flex-col space-y-7">
             <div className="sm:col-span-3">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-medium leading-6 text-gray-900"
               >
                 Email/Username
               </label>
@@ -70,7 +70,7 @@ const Signin = () => {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-200 shadow-sm placeholder:text-[16px] sm:text-sm sm:leading-6"
                   placeholder="example@mail.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -80,7 +80,7 @@ const Signin = () => {
             <div className="sm:col-span-3">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-md font-medium leading-6 text-gray-900"
               >
                 Password
               </label>
@@ -91,7 +91,7 @@ const Signin = () => {
                   id="password"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
-                  className="block w-full rounded-md bg-inputColor border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full text-2xl p-3 rounded-md bg-inputColor border-0  text-gray-200 shadow-sm   placeholder:text-[16px] sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -99,20 +99,15 @@ const Signin = () => {
           {error && <p style={{ color: "red" }}>{error}</p>}
           <button
             onClick={signIn}
-            className="mt-5 bg-navColor p-5 font-bold block border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-white hover:bg-slate-400"
+            className="mt-5 bg-navColor text-[20px] md:text[25px] px-5 rounded-xl font-semibold block border-1 py-1.5  ring-gray-300 sm:text-sm sm:leading-6 text-white hover:bg-gray-200 hover:text-gray-800"
           >
             Sign in
           </button>
-          <div className="text-navColor hover:bg-slate-50 pt-5">
+          <div className="text-navColor cursor-pointer pt-5">
             <Link to="/register">click here to register</Link>
           </div>
         </div>
       </form>
-      <div className="flex justify-between items-center">
-        <img src={ads} alt="" className="w-[151px] mt-20 ml-auto md:ml-0" />
-        <img src={ads} alt="" className="hidden w-[151px] mt-20 md:flex" />
-        <img src={ads} alt="" className="hidden w-[151px] mt-20 md:flex" />
-      </div>
     </div>
   );
 };

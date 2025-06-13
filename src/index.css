@@ -9,7 +9,7 @@ body {
         display: flex;
         --webkit-animation: smooth;
         --moz-animation: smooth;
-       
+       scroll-behavior: smooth;
         flex-direction: column;
         background: rgba(48, 47, 48, 0.067);
 }
@@ -60,6 +60,13 @@ html {
         width: 12px;
         height: 12px;
 
+      }
+
+      .cart, .product, .checkout {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        min-height: 100vh;
       }
       
    

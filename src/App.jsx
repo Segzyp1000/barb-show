@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
-  Navigate,
-  useNavigate,
-  useLocation,
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Signin from "./pages/Signin";
@@ -22,8 +19,6 @@ import { AuthProvider } from "./AuthContext";
 import RequireAuth from "./RequireAuth";
 import AdminPage from "./admin/AdminPage";
 import { CartContext } from "./CartContext";
-
-import { useContext } from "react";
 
 function App() {
   const router = createBrowserRouter(

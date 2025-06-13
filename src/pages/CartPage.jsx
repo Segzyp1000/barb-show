@@ -7,13 +7,13 @@ function CartPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto px-9 mt-20 mb-5 py-12 ">
+    <div className="cart container mx-auto px-9 mt-20 mb-5 py-12 ">
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
       {cart.items.length > 0 ? (
         <div className="cart-container flex flex-col ">
-          {cart.items.map((item) => (
+          {cart.items.map((item, key) => (
             <div className="border-b px-4 border-slate-400">
               <div
                 key={item.id}
@@ -23,7 +23,7 @@ function CartPage() {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-20 h-20 p-7"
+                    className="size-[100px] p-2"
                   />
                   <div>
                     <h2 className="font-bold">{item.title}</h2>

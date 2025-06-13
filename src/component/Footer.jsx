@@ -2,19 +2,14 @@ import Logo2 from "../assets/Logo2.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BackBtn from "./BackBtn";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
 function Footer() {
   const { query, handleInputChange } = useContext(CartContext);
   const location = useLocation();
 
-  if (
-    location.pathname === "/signin" ||
-    location.pathname === "/register" ||
-    location.pathname === "/cart" ||
-    location.pathname === "/checkout"
-  ) {
+  if (location.pathname === "/signin" || location.pathname === "/register") {
     return null;
   }
 

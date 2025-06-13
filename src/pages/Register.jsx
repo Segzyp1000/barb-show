@@ -33,14 +33,14 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full py-24">
+    <div className="w-full ">
       <form type="POST" className="py-16 pb-16">
-        <div className="border-b border-gray-900/10 p-10 m-auto w-3/5 bg-white container">
+        <div className="border-b border-gray-900/10 p-10 mx-auto w-full md:w-3/5 bg-white container">
           <p className="text-3xl font-bold text-gray-900">Sign up</p>
-          <h1 className=" font-md leading-7 text-gray-900 mt-20">
+          <h1 className=" font-semibold leading-7 text-[16px] text-gray-800 mt-20">
             Fill your information to register
           </h1>
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 flex flex-col gap-5">
             <div className="sm:col-span-3">
               <label
                 htmlFor="first-name"
@@ -52,6 +52,7 @@ const Register = () => {
                 <input
                   type="text"
                   name="first-name"
+                  placeholder="Fill in your preferred name"
                   id="first-name"
                   autoComplete="given-name"
                   onChange={(e) => setUsername(e.target.value)}
@@ -70,6 +71,7 @@ const Register = () => {
               <div className="mt-2">
                 <input
                   id="email"
+                  placeholder="example@mail.com"
                   onChange={(e) => setEmail(e.target.value)}
                   name="email"
                   type="email"
@@ -89,6 +91,7 @@ const Register = () => {
               <div className="mt-2">
                 <input
                   type="password"
+                  placeholder="password"
                   onChange={(e) => setPassword(e.target.value)}
                   name="password"
                   id="password"
@@ -103,7 +106,7 @@ const Register = () => {
           <button
             onClick={handleSubmit}
             type="submit"
-            className="text-white bg-navColor px-2 rounded-xl mb-12 hover:slate mt-10"
+            className="text-white bg-navColor px-7 py-2 rounded-xl mb-12 hover:slate mt-10"
           >
             Register
           </button>
