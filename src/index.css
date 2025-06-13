@@ -62,7 +62,7 @@ html {
 
       }
 
-      .cart, .product, .checkout {
+      .cart, .product {
         display: flex;
         flex-direction: column;
         flex-grow: 1;

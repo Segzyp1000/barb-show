@@ -9,7 +9,11 @@ function Footer() {
   const { query, handleInputChange } = useContext(CartContext);
   const location = useLocation();
 
-  if (location.pathname === "/signin" || location.pathname === "/register") {
+  if (
+    location.pathname === "/signin" ||
+    location.pathname === "/register" ||
+    location.pathname === "/checkout"
+  ) {
     return null;
   }
 
