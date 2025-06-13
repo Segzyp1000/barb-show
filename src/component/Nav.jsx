@@ -45,26 +45,26 @@ function Nav() {
           <div className="flex gap-2 md:gap-5 flex-end">
             <Link
               to="/signin"
-              className="bg-black text-white px-1 rounded-lg hover:bg-gray-500"
+              className="bg-black text-white px-1 rounded-lg hover:bg-gray-200 hover:text-gray-800"
             >
               {user ? (
                 <div>
                   <img src={user.googleURL} alt="" />
                   <button
-                    className="p-1 md:p-4 text-[0.7rem] md:text-[1rem]"
+                    className="p-4 md:p-2 text-center overflow-x-hidden"
                     onClick={handleSignOut}
                   >
                     Sign out
                   </button>
                 </div>
               ) : (
-                <button className="p-1 md:p-4 text-[0.7rem] text-center md:text-[1rem] overflow-x-hidden">
+                <button className="p-2 md:p-4 text-center overflow-x-hidden">
                   Sign in
                 </button>
               )}
             </Link>
             <Link to="/cart">
-              <span className="flex rounded-lg bg-navColor hover:bg-gray-500 text-white p-1 md:p-4 mt-1">
+              <span className="flex rounded-lg bg-navColor hover:bg-gray-900 text-white p-2 md:p-4  mt-1">
                 <FaShoppingCart className="mr-1" />
                 {productCount}
               </span>

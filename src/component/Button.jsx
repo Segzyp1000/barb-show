@@ -3,8 +3,9 @@ import React from "react";
 function Button({ onClickHandler, value, title }) {
   return (
     <button
-      className="shadow-lg border-black px-3 bg-white hover:bg-gray-200 "
-      onClick={onClickHandler}
+      className="shadow-sm  px-3 bg-white hover:bg-gray-300 border-2 "
+      onClick={() => onClickHandler({ target: { value } })}
+      type="button"
       value={value}
     >
       {title}

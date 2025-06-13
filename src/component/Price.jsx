@@ -6,14 +6,14 @@ function Price({ handleChange }) {
     <div className="mt-5 text-navColor">
       <div className="font-semibold">Price</div>
       <label>
-        <input
-          onChange={handleChange}
+        <Input
+          handleChange={handleChange}
           type="radio"
           value=""
+          title="All"
           name="test2"
           style={{ backgroundColor: "color", border: "solid 1px #000" }}
         />
-        <span className="checkmark px-1"></span>All
       </label>
 
       <Input

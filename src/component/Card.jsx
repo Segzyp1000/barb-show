@@ -30,7 +30,7 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
         </div>
         <button
           onClick={() => cart.addOneToCart(id, img, title, newPrice)}
-          className="bg-yellow-500 text-white hover:bg-slate-700 p-2 md:p-3 rounded-2xl"
+          className="bg-yellow-500 text-white hover:bg-slate-700 p-3 rounded-xl"
         >
           Add to Cart
         </button>

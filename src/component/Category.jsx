@@ -6,24 +6,26 @@ function Category({ handleChange }) {
     <div className="category text-navColor  mt-5">
       <div className="font-semibold gap-4 ">Categories</div>
       <label>
-        <input
-          onChange={handleChange}
+        <Input
+          handleChange={handleChange}
           type="radio"
           value=""
+          title="All"
           name="test"
           style={{ backgroundColor: "color", border: "solid 1px #000" }}
         />
-        <span className="checkmark px-1 mt-1"></span>All
       </label>
 
       <Input
         handleChange={handleChange}
+        type="radio"
         value="sneakers"
         title="Sneakers"
         name="test"
       />
       <Input
         handleChange={handleChange}
+        type="radio"
         value="flats"
         title="Flats"
         name="test"

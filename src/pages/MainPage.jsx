@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import Sidebar from "../component/Sidebar";
 import Recommended from "../component/Recommended";
 import Products from "../component/Products";
@@ -22,7 +22,7 @@ const MainPage = () => {
   };
 
   function filteredData(products, selected, query) {
-    let filteredProducts = products;
+    let filteredProducts = [...products];
 
     // Filtering input items
     if (query) {

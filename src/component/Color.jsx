@@ -6,14 +6,14 @@ function Color({ handleChange }) {
     <div className="text-navColor">
       <div className="font-semibold mt-5">Color</div>
       <label>
-        <input
-          onChange={handleChange}
+        <Input
+          handleChange={handleChange}
           type="radio"
           value=""
+          title="All"
           name="test2"
           style={{ backgroundColor: "color", border: "solid 1px #000" }}
         />
-        <span className="checkmark px-1"></span>All
       </label>
       <Input
         handleChange={handleChange}
