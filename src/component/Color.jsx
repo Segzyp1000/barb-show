@@ -17,6 +17,7 @@ function Color({ handleChange }) {
       </label>
       <Input
         handleChange={handleChange}
+        type="radio"
         value="black"
         title="Black"
         name="test1"
@@ -24,6 +25,7 @@ function Color({ handleChange }) {
       />
       <Input
         handleChange={handleChange}
+        type="radio"
         value="blue"
         title="Blue"
         name="test1"
@@ -31,6 +33,7 @@ function Color({ handleChange }) {
       />
       <Input
         handleChange={handleChange}
+        type="radio"
         value="green"
         title="Green"
         name="test1"
@@ -38,6 +41,7 @@ function Color({ handleChange }) {
       />
       <Input
         handleChange={handleChange}
+        type="radio"
         value="red"
         title="Red"
         name="test1"
@@ -45,6 +49,7 @@ function Color({ handleChange }) {
       />
       <Input
         handleChange={handleChange}
+        type="radio"
         value="white"
         title="White"
         name="test3"

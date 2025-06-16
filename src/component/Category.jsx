@@ -33,6 +33,7 @@ function Category({ handleChange }) {
 
       <Input
         handleChange={handleChange}
+        type="radio"
         value="sandals"
         title="Sandals"
         name="test"
@@ -40,6 +41,7 @@ function Category({ handleChange }) {
 
       <Input
         handleChange={handleChange}
+        type="radio"
         value="heels"
         title="Heels"
         name="test"

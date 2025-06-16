@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
 function SearchInput() {
   const { query, handleInputChange } = useContext(CartContext);
   return (
-    <div className=" bg-white mt-[4.9rem] md:mt-[5.9rem] ">
+    <div className=" bg-white mt-[4.5rem] md:mt-[5.5rem] ">
       <input
         onChange={handleInputChange}
         value={query}

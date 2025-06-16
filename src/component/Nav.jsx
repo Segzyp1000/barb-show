@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
@@ -31,7 +31,7 @@ function Nav() {
   };
 
   return (
-    <div className="fixed top-0 left-0 z-20  text-navColor p-2 bg-white w-full backdrop-blur-md ">
+    <div className="fixed top-0 left-0 z-20 max-h-48  text-navColor p-1 bg-white w-full backdrop-blur-md ">
       <div className="p-3">
         <div className="flex justify-between  items-center px-5">
           <Link to="/">
@@ -39,7 +39,7 @@ function Nav() {
               src={Logo}
               alt=""
               height={151}
-              className="w-[7rem] md:w-[10rem] transition-transform duration-300 ease-in-out hover:scale-110"
+              className="w-[7rem] md:w-[10rem] transition-transform duration-300 ease-in-out hover:scale-105"
             />
           </Link>
           <div className="flex gap-2 md:gap-5 flex-end">
@@ -64,7 +64,7 @@ function Nav() {
               )}
             </Link>
             <Link to="/cart">
-              <span className="flex rounded-lg bg-navColor hover:bg-gray-900 text-white p-2 md:p-4  mt-1">
+              <span className="flex rounded-lg  text-sm bg-navColor hover:bg-gray-900 text-white p-2 md:p-4  mt-1">
                 <FaShoppingCart className="mr-1" />
                 {productCount}
               </span>

@@ -7,9 +7,8 @@ body {
         font-family: "Roboto", sans-serif;
         font-weight: 500;
         display: flex;
-        --webkit-animation: smooth;
+        scroll-behavior: var(--moz-animation);
         --moz-animation: smooth;
-       scroll-behavior: smooth;
         flex-direction: column;
         background: rgba(48, 47, 48, 0.067);
 }

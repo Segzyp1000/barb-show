@@ -28,7 +28,7 @@ const MainPage = () => {
     if (query) {
       filteredProducts = products.filter(
         (product) =>
-          product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          product.title.toLowerCase().includes(query.toLowerCase()) !== -1
       );
     }
 
