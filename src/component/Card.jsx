@@ -16,14 +16,14 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
         <h3 className="ml-1 sm:text-[10px] md:text-[12px] lg:text-[14px] max-lg:text-[17px] leading-5">
           {title}
         </h3>
-        <div className="flex text-yellow-500  sm:[10px] md:text-[10px] lg:text-[15px] max-lg:text-[17px] ">
+        <div className="flex text-yellow-500  sm:[8px] md:text-[12px] lg:text-[15px] max-lg:text-[17px] ">
           {star}
           {star}
           {star}
         </div>
 
         <div className="card-price flex space-x-5">
-          <div className="price space-x-1 sm:text-[10px] md:text-[10px] lg:text-[12px] max-lg:text-[15px]">
+          <div className="price space-x-1 sm:text-[8px] md:text-[13px] lg:text-[12px] max-lg:text-[15px]">
             <del>₦{prevPrice}</del>
             <b>₦{newPrice}</b>
           </div>
