@@ -8,12 +8,12 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
     <section className="mt-10 space-y-3 border-gray-950 ">
       <Link
         to={`/details/${title}`}
-        className="flex justify-center h-[65px] transition-transform duration-300 ease-in-out hover:scale-110"
+        className="flex justify-center h-[50px] md:h-[65px] transition-transform duration-300 ease-in-out hover:scale-110"
       >
         <img src={img} alt={title} width={60} height={60} className="w-auto" />
       </Link>
       <div className="card-details text-[13px] p-5">
-        <h3 className="ml-1 sm:text-[10px] md:text-[12px] lg:text-[14px] max-lg:text-[17px] leading-5">
+        <h3 className="ml-1 sm:text-[9px] md:text-[12px] lg:text-[14px] max-lg:text-[17px] leading-5">
           {title}
         </h3>
         <div className="flex text-yellow-500  sm:[8px] md:text-[12px] lg:text-[15px] max-lg:text-[17px] ">
