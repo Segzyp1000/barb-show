@@ -8,68 +8,114 @@ import SearchInput from "../component/SearchInput";
 import { CartContext } from "../CartContext";
 
 const MainPage = () => {
-  const { query } = useContext(CartContext); // Use query from context
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const { query } = useContext(CartContext);
 
-  // radio filter
-  const handleChange = (event) => {
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState("");
+
+  // Handlers
+  const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
+    setSelectedColor("");
+    setSelectedPrice("");
+    setSelectedCompany("");
   };
 
-  // button filter
-  const handleClick = (event) => {
-    setSelectedCategory(event.target.value);
+  const handleColorChange = (event) => {
+    setSelectedColor(event.target.value);
+    setSelectedCategory("");
+    setSelectedPrice("");
+    setSelectedCompany("");
   };
 
-  function filteredData(products, selected, query) {
-    let filteredProducts = [...products];
+  const handlePriceChange = (event) => {
+    setSelectedPrice(event.target.value);
+    setSelectedColor("");
+    setSelectedCategory("");
+    setSelectedCompany("");
+  };
 
-    // Filtering input items
+  const handleRecommendedClick = (event) => {
+    setSelectedCompany(event.target.value);
+    setSelectedCategory("");
+    setSelectedColor("");
+    setSelectedPrice("");
+  };
+
+  const getFilteredProducts = () => {
+    let filtered = [...products];
+
+    if (selectedCategory) {
+      filtered = filtered.filter(
+        (product) => product.category === selectedCategory
+      );
+    }
+
+    if (selectedColor) {
+      filtered = filtered.filter((product) => product.color === selectedColor);
+    }
+
+    if (selectedPrice) {
+      filtered = filtered.filter(
+        (product) => Number(product.newPrice) <= Number(selectedPrice)
+      );
+    }
+
+    if (selectedCompany) {
+      filtered = filtered.filter(
+        (product) => product.company === selectedCompany
+      );
+    }
+
     if (query) {
-      filteredProducts = products.filter(
-        (product) =>
-          product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      filtered = filtered.filter((product) =>
+        product.title.toLowerCase().includes(query.toLowerCase())
       );
     }
 
-    // Selected Filter
-    if (selected) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, color, company, newPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          title === selected ||
-          company === selected ||
-          newPrice === selected
-      );
-    }
+    return filtered;
+  };
 
-    return filteredProducts.map(
-      ({ id, img, title, star, reviews, newPrice, prevPrice }) => (
-        <Card
-          key={id}
-          id={id}
-          img={img}
-          title={title}
-          star={star}
-          reviews={reviews}
-          newPrice={newPrice}
-          prevPrice={prevPrice}
-        />
-      )
-    );
-  }
-
-  const result = filteredData(products, selectedCategory, query);
+  const filteredProducts = getFilteredProducts();
 
   return (
     <div>
       <SearchInput />
       <div className="flex container w-full">
-        <Sidebar handleChange={handleChange} />
-        <div>
-          <Recommended handleClick={handleClick} />
-          <Products result={result} />
+        <Sidebar
+          onCategoryChange={handleCategoryChange}
+          onColorChange={handleColorChange}
+          onPriceChange={handlePriceChange}
+          selectedCategory={selectedCategory}
+          selectedColor={selectedColor}
+          selectedPrice={selectedPrice}
+        />
+        <div className="flex-1 px-0.5">
+          <Recommended handleClick={handleRecommendedClick} />
+          {filteredProducts.length > 0 ? (
+            <Products
+              result={filteredProducts.map(
+                ({ id, img, title, star, reviews, newPrice, prevPrice }) => (
+                  <Card
+                    key={id}
+                    id={id}
+                    img={img}
+                    title={title}
+                    star={star}
+                    reviews={reviews}
+                    newPrice={newPrice}
+                    prevPrice={prevPrice}
+                  />
+                )
+              )}
+            />
+          ) : (
+            <p className="text-center text-red-500 font-semibold mt-6">
+              No products match the selected filters.
+            </p>
+          )}
         </div>
       </div>
     </div>

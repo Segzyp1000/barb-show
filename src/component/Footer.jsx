@@ -22,13 +22,11 @@ function Footer() {
       <div className="flex flex-col container">
         <div className="mt-10 flex flex-col items-center md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mx-5">
           {/* Logo: only visible on medium (md) and larger screens */}
-          <Link to="/">
-            <a
-              href="#"
-              className="hidden md:block transition-transform duration-300 ease-in-out hover:scale-105"
-            >
-              <img src={Logo2} alt="logo" className="w-[121px]" />
-            </a>
+          <Link
+            to="/"
+            className="hidden md:block transition-transform duration-300 ease-in-out hover:scale-105"
+          >
+            <img src={Logo2} alt="logo" className="w-[121px]" />
           </Link>
 
           {/* Search input: always centered on mobile, right-aligned on desktop */}

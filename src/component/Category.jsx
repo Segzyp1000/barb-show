@@ -8,11 +8,9 @@ function Category({ handleChange }) {
       <label>
         <Input
           handleChange={handleChange}
-          type="radio"
           value=""
           title="All"
-          name="test"
-          style={{ backgroundColor: "color", border: "solid 1px #000" }}
+          name="category"
         />
       </label>
 
@@ -21,14 +19,14 @@ function Category({ handleChange }) {
         type="radio"
         value="sneakers"
         title="Sneakers"
-        name="test"
+        name="category"
       />
       <Input
         handleChange={handleChange}
         type="radio"
         value="flats"
         title="Flats"
-        name="test"
+        name="category"
       />
 
       <Input
@@ -36,7 +34,7 @@ function Category({ handleChange }) {
         type="radio"
         value="sandals"
         title="Sandals"
-        name="test"
+        name="category"
       />
 
       <Input
@@ -44,7 +42,7 @@ function Category({ handleChange }) {
         type="radio"
         value="heels"
         title="Heels"
-        name="test"
+        name="category"
       />
     </div>
   );

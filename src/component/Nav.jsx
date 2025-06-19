@@ -38,8 +38,8 @@ function Nav() {
             <img
               src={Logo}
               alt=""
-              height={151}
-              className="w-[7rem] md:w-[10rem] transition-transform duration-300 ease-in-out hover:scale-105"
+              height={140}
+              className="w-[7rem] md:w-[9rem] transition-transform duration-300 ease-in-out hover:scale-105"
             />
           </Link>
           <div className="flex gap-2 md:gap-5 flex-end">

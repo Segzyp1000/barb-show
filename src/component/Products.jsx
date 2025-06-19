@@ -1,5 +1,3 @@
-import React from "react";
-
 function Products({ result }) {
   return (
     <section className=" text-navColor">

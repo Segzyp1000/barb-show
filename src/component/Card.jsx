@@ -8,12 +8,12 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
     <section className="mt-10 space-y-3 border-gray-950 ">
       <Link
         to={`/details/${title}`}
-        className="flex justify-center h-[75px] transition-transform duration-300 ease-in-out hover:scale-110"
+        className="flex justify-center h-[65px] transition-transform duration-300 ease-in-out hover:scale-110"
       >
-        <img src={img} alt={title} width={75} height={75} className="w-auto" />
+        <img src={img} alt={title} width={60} height={60} className="w-auto" />
       </Link>
       <div className="card-details text-[13px] p-5">
-        <h3 className="ml-1 text-[12px] md:text-[15px] lg:text-[17px] max-lg:text-[19px] leading-5">
+        <h3 className="ml-1 text-[12px] md:text-[12px] lg:text-[14px] max-lg:text-[17px] leading-5">
           {title}
         </h3>
         <div className="flex text-yellow-500  text-[12px] md:text-[15px] lg:text-[17px] max-lg:text-[19px] ">
@@ -23,7 +23,7 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
         </div>
 
         <div className="card-price flex space-x-5">
-          <div className="price space-x-1  text-[12px] md:text-[15px] lg:text-[17px] max-lg:text-[19px] ">
+          <div className="price space-x-1 text-[12px] md:text-[12px] lg:text-[12px] max-lg:text-[17px]">
             <del>₦{prevPrice}</del>
             <b>₦{newPrice}</b>
           </div>

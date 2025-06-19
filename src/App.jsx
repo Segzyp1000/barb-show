@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import {
   Route,
   createBrowserRouter,
@@ -18,7 +18,6 @@ import CartProvider from "./CartContext";
 import { AuthProvider } from "./AuthContext";
 import RequireAuth from "./RequireAuth";
 import AdminPage from "./admin/AdminPage";
-import { CartContext } from "./CartContext";
 
 function App() {
   const router = createBrowserRouter(
@@ -44,8 +43,6 @@ function App() {
       </Route>
     )
   );
-
-  const { currentPage, setCurrentPage } = useContext(CartContext);
 
   useEffect(() => {
     const storedPage = localStorage.getItem("current-page");
