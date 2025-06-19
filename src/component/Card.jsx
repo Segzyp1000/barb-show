@@ -8,7 +8,7 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
     <section className="mt-10 space-y-3 border-gray-950 ">
       <Link
         to={`/details/${title}`}
-        className="flex justify-center h-[50px] md:h-[65px] transition-transform duration-300 ease-in-out hover:scale-110"
+        className="flex justify-center h-[60px] md:h-[68px] transition-transform duration-300 ease-in-out hover:scale-110"
       >
         <img src={img} alt={title} width={60} height={60} className="w-auto" />
       </Link>
