@@ -7,23 +7,23 @@ function CartPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="cart container mx-auto px-9 mt-20 mb-5 py-12 ">
+    <div className="cart bg-white container mx-auto px-9 mt-20 mb-5 py-12 ">
       <div>
         <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       </div>
       {cart.items.length > 0 ? (
-        <div className="cart-container flex flex-col ">
+        <div className="cart-container">
           {cart.items.map((item, key) => (
             <div className="border-b px-4 border-slate-400">
               <div
                 key={item.id}
-                className="cart-item flex justify-between flex-wrap  mb-4 py-7"
+                className="cart-item justify-between flex flex-col md:flex-row md:space-x-4  mb-4 py-7"
               >
                 <div className="flex space-x-2 items-center">
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="size-[100px] p-2"
+                    className="size-[75px] p-2"
                   />
                   <div>
                     <h2 className="font-bold">{item.title}</h2>
@@ -31,7 +31,7 @@ function CartPage() {
                   </div>
                 </div>
 
-                <div className="space-y-2 mt-10 space-x-2 ">
+                <div className="flex space-y-2 mt-10 space-x-2 ">
                   <button
                     onClick={() => cart.addOneToCart(item.id)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded"
