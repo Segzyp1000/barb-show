@@ -10,7 +10,14 @@ function Card({ id, img, title, star, newPrice, prevPrice }) {
         to={`/details/${title}`}
         className="flex justify-center h-[60px] md:h-[68px] transition-transform duration-300 ease-in-out hover:scale-110"
       >
-        <img src={img} alt={title} width={60} height={60} className="w-auto" />
+        <img
+          key={id}
+          src={img}
+          alt={title}
+          width={60}
+          height={60}
+          className="w-auto"
+        />
       </Link>
       <div className="card-details text-[13px] p-5">
         <h3 className="ml-1 sm:text-[9px] md:text-[12px] lg:text-[14px] max-lg:text-[17px] leading-5">

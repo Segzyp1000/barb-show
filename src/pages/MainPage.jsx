@@ -97,9 +97,12 @@ const MainPage = () => {
           {filteredProducts.length > 0 ? (
             <Products
               result={filteredProducts.map(
-                ({ id, img, title, star, reviews, newPrice, prevPrice }) => (
+                (
+                  { id, img, title, star, reviews, newPrice, prevPrice },
+                  index
+                ) => (
                   <Card
-                    key={id}
+                    key={`${id}-${title}-${index}`}
                     id={id}
                     img={img}
                     title={title}

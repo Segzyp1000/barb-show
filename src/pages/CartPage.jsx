@@ -16,7 +16,7 @@ function CartPage() {
           {cart.items.map((item, key) => (
             <div className="border-b px-4 border-slate-400">
               <div
-                key={item.id}
+                key={key}
                 className="cart-item justify-between flex flex-col md:flex-row md:space-x-4  mb-4 py-7"
               >
                 <div className="flex space-x-2 items-center">

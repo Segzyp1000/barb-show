@@ -6,6 +6,7 @@ const STORAGE_KEY = "cart-products";
 export const CartContext = createContext({
   items: [],
   query: "",
+  setQuery: () => {},
   getProductQuantity: () => {},
   addOneToCart: () => {},
   removeOneFromCart: () => {},
@@ -86,6 +87,7 @@ export const CartProvider = ({ children }) => {
   const contextValue = {
     items: cartProducts,
     query,
+    setQuery,
     getProductQuantity,
     addOneToCart,
     removeOneFromCart,
