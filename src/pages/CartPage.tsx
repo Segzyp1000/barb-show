@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { useNavigate } from "react-router-dom";
 
@@ -33,7 +33,7 @@ function CartPage() {
 
                 <div className="flex space-y-2 mt-10 space-x-2 ">
                   <button
-                    onClick={() => cart.addOneToCart(item.id)}
+                    onClick={() => cart.addOneToCart(item.id, item.img, item.title, item.newPrice)}
                     className="bg-yellow-500 text-white px-2 py-1 rounded"
                   >
                     +

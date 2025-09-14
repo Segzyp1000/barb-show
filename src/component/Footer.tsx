@@ -1,9 +1,9 @@
 import Logo2 from "../assets/Logo2.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import BackBtn from "./BackBtn";
+import BackBtn from "./BackBtn.js";
 import { useContext } from "react";
-import { CartContext } from "../CartContext";
+import { CartContext } from "../CartContext.js";
 
 function Footer() {
   const { query, handleInputChange } = useContext(CartContext);
@@ -44,11 +44,12 @@ function Footer() {
           <ul className="space-y-2">
             <h1 className="font-bold text-[12px] md:text-[20px]">Company</h1>
             <li className="text-[10px] md:text-[13px] font-light text-gray-300">
-              <Link to="/about">About us</Link>
+              About Us
             </li>
             <li className="text-[10px] md:text-[13px]  font-light text-gray-300">
-              <Link to="/admin">Admin Dashboard</Link>
+              <a href="">Careers</a>
             </li>
+            
             <li className="text-[10px] md:text-[13px]  font-light text-gray-300">
               <a href="">News</a>
             </li>

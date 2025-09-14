@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, ChangeEvent } from "react";
 import Sidebar from "../component/Sidebar";
 import Recommended from "../component/Recommended";
 import Products from "../component/Products";
@@ -7,45 +7,63 @@ import Card from "../component/Card";
 import SearchInput from "../component/SearchInput";
 import { CartContext } from "../CartContext";
 
-const MainPage = () => {
-  const { query } = useContext(CartContext);
+// Define product type
+type Product = {
+  id: number | string;
+  img: string;
+  title: string;
+  newPrice: number;
+  prevPrice: number;
+  category: string;
+  color: string;
+  company: string;
+  
+};
 
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState("");
+type SyntheticEvent = {
+  target: { value: string | number };
+};
+
+
+const MainPage = () => {
+  const { query } = useContext(CartContext) as { query: string };
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedColor, setSelectedColor] = useState<string>("");
+  const [selectedPrice, setSelectedPrice] = useState<number | null>(null);
+  const [selectedCompany, setSelectedCompany] = useState<string>("");
 
   // Handlers
-  const handleCategoryChange = (event) => {
+  const handleCategoryChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedCategory(event.target.value);
     setSelectedColor("");
-    setSelectedPrice("");
+    setSelectedPrice(null);
     setSelectedCompany("");
   };
 
-  const handleColorChange = (event) => {
+  const handleColorChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedColor(event.target.value);
     setSelectedCategory("");
-    setSelectedPrice("");
+    setSelectedPrice(null);
     setSelectedCompany("");
   };
 
-  const handlePriceChange = (event) => {
-    setSelectedPrice(event.target.value);
+  const handlePriceChange = (event: SyntheticEvent) => {
+    setSelectedPrice(Number(event.target.value));
     setSelectedColor("");
     setSelectedCategory("");
     setSelectedCompany("");
   };
 
-  const handleRecommendedClick = (event) => {
-    setSelectedCompany(event.target.value);
+   const handleRecommendedClick = (event: SyntheticEvent) => {
+    setSelectedCompany(event.target.value as string);
     setSelectedCategory("");
     setSelectedColor("");
-    setSelectedPrice("");
+    setSelectedPrice(null);
   };
 
-  const getFilteredProducts = () => {
-    let filtered = [...products];
+
+  const getFilteredProducts = (): Product[] => {
+    let filtered = [...(products as Product[])];
 
     if (selectedCategory) {
       filtered = filtered.filter(
@@ -57,10 +75,8 @@ const MainPage = () => {
       filtered = filtered.filter((product) => product.color === selectedColor);
     }
 
-    if (selectedPrice) {
-      filtered = filtered.filter(
-        (product) => Number(product.newPrice) <= Number(selectedPrice)
-      );
+    if (selectedPrice !== null) {
+      filtered = filtered.filter((product) => product.newPrice === selectedPrice);
     }
 
     if (selectedCompany) {
@@ -98,7 +114,7 @@ const MainPage = () => {
             <Products
               result={filteredProducts.map(
                 (
-                  { id, img, title, star, reviews, newPrice, prevPrice },
+                  { id, img, title, newPrice, prevPrice },
                   index
                 ) => (
                   <Card
@@ -106,8 +122,6 @@ const MainPage = () => {
                     id={id}
                     img={img}
                     title={title}
-                    star={star}
-                    reviews={reviews}
                     newPrice={newPrice}
                     prevPrice={prevPrice}
                   />

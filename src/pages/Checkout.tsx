@@ -13,8 +13,18 @@ const Checkout = () => {
     email,
     amount,
     metadata: {
-      name,
-      phone,
+      custom_fields: [
+        {
+          display_name: "Name",
+          variable_name: "name",
+          value: name,
+        },
+        {
+          display_name: "Phone",
+          variable_name: "phone",
+          value: phone,
+        },
+      ],
     },
     publicKey,
     text: "Pay Now",

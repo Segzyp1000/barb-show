@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Nav from "../component/Nav";
-import Footer from "../component/Footer";
+import Nav from "../component/Nav.js";
+import Footer from "../component/Footer.js";
 
 function Mainlayer() {
   return (

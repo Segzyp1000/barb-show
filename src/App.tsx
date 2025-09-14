@@ -10,16 +10,14 @@ import Signin from "./pages/Signin";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import CartPage from "./pages/CartPage";
-import About from "./pages/About";
-import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
 import Mainlayer from "./Layer/Mainlayer";
 import CartProvider from "./CartContext";
 import { AuthProvider } from "./AuthContext";
 import RequireAuth from "./RequireAuth";
-import AdminPage from "./admin/AdminPage";
 
-function App() {
+
+function App(): JSX.Element {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Mainlayer />}>
@@ -27,10 +25,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} />
         <Route path="/details/:title" element={<ProductDetails />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/login" element={<Login />} />
+        
         <Route
           path="/checkout"
           element={
@@ -55,9 +51,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <CartProvider>
-          <div>
-            <RouterProvider router={router} />
-          </div>
+          <RouterProvider router={router} />
         </CartProvider>
       </AuthProvider>
     </div>
