@@ -1,4 +1,4 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { useNavigate } from "react-router-dom";
 
@@ -7,66 +7,68 @@ function CartPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="cart bg-white container mx-auto px-9 mt-20 mb-5 py-12 ">
-      <div>
-        <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
-      </div>
+    <div className="cart container mx-auto px-6 md:px-12 mt-20 mb-10 py-10">
+      <h1 className="text-3xl font-bold mb-8 text-gray-800">Your Cart</h1>
+
       {cart.items.length > 0 ? (
-        <div className="cart-container">
+        <div className="space-y-6">
           {cart.items.map((item, key) => (
-            <div className="border-b px-4 border-slate-400">
-              <div
-                key={key}
-                className="cart-item justify-between flex flex-col md:flex-row md:space-x-4  mb-4 py-7"
-              >
-                <div className="flex space-x-2 items-center">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="size-[75px] p-2"
-                  />
-                  <div>
-                    <h2 className="font-bold">{item.title}</h2>
-                    <h2 className="font-normal">Price: ₦{item.newPrice}</h2>
-                  </div>
+            <div
+              key={key}
+              className="flex flex-col md:flex-row items-center justify-between gap-4 p-5 border rounded-2xl shadow-sm bg-white hover:shadow-md transition"
+            >
+              {/* Product Info */}
+              <div className="flex items-center gap-4 w-full md:w-auto">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-20 h-20 object-contain rounded-lg border"
+                />
+                <div>
+                  <h2 className="font-semibold text-lg text-gray-800">{item.title}</h2>
+                  <p className="text-gray-600">₦{item.newPrice}</p>
                 </div>
+              </div>
 
-                <div className="flex space-y-2 mt-10 space-x-2 ">
-                  <button
-                    onClick={() => cart.addOneToCart(item.id, item.img, item.title, item.newPrice)}
-                    className="bg-yellow-500 text-white px-2 py-1 rounded"
-                  >
-                    +
-                  </button>
-                  <button className="bg-white text-black px-2 py-1 rounded">
-                    {item.quantity}
-                  </button>
-                  <button
-                    onClick={() => cart.removeOneFromCart(item.id)}
-                    className="bg-navColor text-white px-2 py-1 rounded"
-                  >
-                    -
-                  </button>
-
-                  <button
-                    onClick={() => cart.deleteFromCart(item.id)}
-                    className="bg-red-500 text-white px-2 py-1 rounded"
-                  >
-                    Remove
-                  </button>
-                </div>
+              {/* Quantity Controls */}
+              <div className="flex items-center gap-2 mt-4 md:mt-0">
+                <button
+                  onClick={() =>
+                    cart.addOneToCart(item.id, item.img, item.title, item.newPrice)
+                  }
+                  className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg transition"
+                >
+                  +
+                </button>
+                <span className="px-3 py-1 border rounded-lg bg-gray-100 text-gray-800">
+                  {item.quantity}
+                </span>
+                <button
+                  onClick={() => cart.removeOneFromCart(item.id)}
+                  className="bg-navColor hover:bg-slate-700 text-white px-3 py-1 rounded-lg transition"
+                >
+                  -
+                </button>
+                <button
+                  onClick={() => cart.deleteFromCart(item.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg transition"
+                >
+                  Remove
+                </button>
               </div>
             </div>
           ))}
 
-          <div className="total-cost flex mt-5">
-            <p className="font-bold text-[19px]">Total:</p>
-            <p className="font-bold text-[19px]">₦{cart.getTotalCost()}</p>
+          {/* Total Section */}
+          <div className="flex items-center justify-between mt-6 p-5 bg-gray-50 rounded-2xl border">
+            <p className="text-xl font-bold text-gray-800">Total:</p>
+            <p className="text-xl font-bold text-gray-900">₦{cart.getTotalCost()}</p>
           </div>
 
-          <div>
+          {/* Checkout Button */}
+          <div className="flex justify-end">
             <button
-              className="bg-navColor text-white px-4 mt-5 rounded p-2 hover:bg-slate-700 cursor-pointer"
+              className="bg-navColor hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-medium transition"
               onClick={() => navigate("/checkout")}
             >
               Proceed to Checkout
@@ -74,7 +76,7 @@ function CartPage() {
           </div>
         </div>
       ) : (
-        <p className="font-normal">Your cart is empty.</p>
+        <p className="text-gray-600">Your cart is empty.</p>
       )}
     </div>
   );
