@@ -20,7 +20,7 @@ function Footer() {
   return (
     <div className="bg-navColor">
       <div className="flex flex-col container">
-        <div className="mt-10 flex flex-col items-center md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mx-5">
+        <div className="mt-10 flex flex-col items-center md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0 mx-5 md:mx-10 lg:mx-20">
           {/* Logo: only visible on medium (md) and larger screens */}
           <Link
             to="/"
