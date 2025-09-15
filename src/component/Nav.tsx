@@ -7,6 +7,7 @@ import type { CartContextType } from "../CartContext";
 import { auth } from "../config/Firebase";
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { IoMdContact } from "react-icons/io";
 
   
 function Nav() {
@@ -49,8 +50,8 @@ const cart = useContext(CartContext) as CartContextType;
               className="bg-black text-white px-1 rounded-lg hover:bg-gray-200 hover:text-gray-800"
             >
               {user ? (
-                <div>
-                  <img src={user.photoURL || ""} alt={user.displayName || "User"} />
+                <div className="flex items-center gap-2">
+                  <IoMdContact className="size-7"/>
                   <button
                     className="bg-black text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
                     onClick={handleSignOut}
