@@ -11,13 +11,7 @@ function Price({ handleChange, selectedPrice }: PriceProps) {
   return (
     <div className="mt-5 text-navColor">
       <div className="font-semibold">Price</div>
-      <Input
-        handleChange={handleChange}
-        value= ""
-        title="All"
-        name="price"
-        checked={selectedPrice === null}
-      />
+      
       <Input
         handleChange={handleChange}
         value={50}

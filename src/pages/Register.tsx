@@ -124,7 +124,6 @@ const Register = () => {
             {/* Submit */}
             <button
               type="submit"
-              disabled={isSubmitting}
               className={`w-full py-3 rounded-lg font-semibold transition ${
                 isSubmitting
                   ? "bg-indigo-400 cursor-not-allowed text-white"

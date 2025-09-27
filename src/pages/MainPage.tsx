@@ -129,8 +129,8 @@ const MainPage = () => {
               )}
             />
           ) : (
-            <p className="text-center text-red-500 font-semibold mt-6">
-              No products match the selected filters.
+            <p className="font-semibold ml-5 text-red-500 mt-6">
+              No Produt found
             </p>
           )}
         </div>
