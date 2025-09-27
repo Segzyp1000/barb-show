@@ -59,7 +59,7 @@ const Signin: React.FC = () => {
     <div className="container min-h-screen flex flex-col md:flex-row">
       {/* Left side image (hidden on small screens) */}
       <div className="hidden md:flex flex-1 items-center justify-center bg-gradient-to-br from-white-500 to-purple-600">
-        <img src={sneaker} alt="Sneaker" className="max-h-[500px] object-contain" />
+        <img src={sneaker} alt="Sneaker" loading='lazy' className="max-h-[500px] object-contain" />
       </div>
 
       {/* Right side form */}
@@ -67,7 +67,7 @@ const Signin: React.FC = () => {
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 space-y-6">
           {/* Logo */}
           <div className="flex justify-center">
-            <img src={Logo} alt="Logo" className="w-32" />
+            <img src={Logo} loading="lazy" alt="Logo" className="w-32" />
           </div>
 
           {/* Heading */}

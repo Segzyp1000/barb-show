@@ -28,6 +28,7 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
           key={id}
           src={img}
           alt={title}
+          loading="lazy"
           width={60}
           height={60}
           className="w-full h-40 object-contain p-4 transition-transform duration-300 ease-in-out hover:scale-105]  max-w-[10rem] max-h-[8rem]"

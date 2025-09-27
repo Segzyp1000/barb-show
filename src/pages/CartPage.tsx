@@ -21,6 +21,7 @@ function CartPage() {
               <div className="flex items-center gap-4 w-full md:w-auto">
                 <img
                   src={item.img}
+                  loading="lazy"
                   alt={item.title}
                   className="w-20 h-20 object-contain rounded-lg border"
                 />

@@ -12,7 +12,7 @@ const Register = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean | string>(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const Register = () => {
       try {
         setIsSubmitting(true);
         await createUserWithEmailAndPassword(auth, email, password);
-        alert("Registration successful!");
+        setIsSubmitting("Registration successful!");
         navigate("/signin");
       } catch (err: any) {
         console.error(err);
@@ -45,7 +45,7 @@ const Register = () => {
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side image (desktop only) */}
       <div className="hidden md:flex flex-1 items-center justify-center bg-gradient-to-br from-white-500 to-purple-600">
-        <img src={sneaker} alt="Sneaker" className="max-h-[500px] object-contain" />
+        <img src={sneaker} loading="lazy" alt="Sneaker" className="max-h-[500px] object-contain" />
       </div>
 
       {/* Right side form */}
@@ -53,7 +53,7 @@ const Register = () => {
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 space-y-6">
           {/* Logo */}
           <div className="flex justify-center">
-            <img src={Logo} alt="Logo" className="w-32" />
+            <img src={Logo} loading="lazy" alt="Logo" className="w-32" />
           </div>
 
           {/* Heading */}

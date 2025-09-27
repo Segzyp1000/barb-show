@@ -39,6 +39,7 @@ const cart = useContext(CartContext) as CartContextType;
           <Link to="/">
             <img
               src={Logo}
+              loading="lazy"
               alt="Logo"
               className="w-[7rem] md:w-[9rem] transition-transform duration-300 ease-in-out hover:scale-105"
             />

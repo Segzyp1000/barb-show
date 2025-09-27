@@ -63,6 +63,7 @@ function ProductDetails() {
         <div className="flex justify-center">
           <img
             src={product.img}
+            loading="lazy"
             alt={product.title}
             className="w-[280px] md:w-[350px] rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
           />
