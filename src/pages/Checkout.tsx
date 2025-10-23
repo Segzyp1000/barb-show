@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PaystackButton } from "react-paystack";
+import toast from "react-hot-toast";
 
 const Checkout = () => {
   const publicKey = "pk_live_8216d72e144ca1e11aaad755ef8158c327288236";
@@ -14,23 +15,15 @@ const Checkout = () => {
     amount,
     metadata: {
       custom_fields: [
-        {
-          display_name: "Name",
-          variable_name: "name",
-          value: name,
-        },
-        {
-          display_name: "Phone",
-          variable_name: "phone",
-          value: phone,
-        },
+        { display_name: "Name", variable_name: "name", value: name },
+        { display_name: "Phone", variable_name: "phone", value: phone },
       ],
     },
     publicKey,
     text: "Pay Now",
     onSuccess: () =>
-      alert("✅ Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("⚠️ Wait! Don't leave yet!"),
+      toast.success("✅ Payment successful! Thanks for your purchase."),
+    onClose: () => toast("⚠ Payment window closed."),
   };
 
   return (
@@ -43,10 +36,7 @@ const Checkout = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Name */}
           <div>
-            <label
-              className="block text-sm font-medium text-gray-600 mb-2"
-              htmlFor="name"
-            >
+            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="name">
               Name
             </label>
             <input
@@ -60,10 +50,7 @@ const Checkout = () => {
 
           {/* Email */}
           <div>
-            <label
-              className="block text-sm font-medium text-gray-600 mb-2"
-              htmlFor="email"
-            >
+            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -77,10 +64,7 @@ const Checkout = () => {
 
           {/* Phone */}
           <div>
-            <label
-              className="block text-sm font-medium text-gray-600 mb-2"
-              htmlFor="phone"
-            >
+            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="phone">
               Phone
             </label>
             <input
