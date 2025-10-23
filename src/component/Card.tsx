@@ -14,15 +14,17 @@ type CardProps = {
   prevPrice?: number | string;
 };
 
+
+
 function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
-  const cart = useContext(CartContext) as CartContextType;
+  const cart = useContext(CartContext);
 
   return (
- <section className="w-full max-w-xs bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidde mt-10">
-
+    <section className="group  w-full border-b-2 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden mt-10 relative">
+      {/* Image */}
       <Link
         to={`/details/${title}`}
-        className=" block overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110"
+        className="block overflow-hidden transition-transform duration-300 ease-in-out group-hover:scale-105"
       >
         <img
           key={id}
@@ -33,38 +35,42 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
           height={60}
           className="w-full h-40 object-contain p-4 transition-transform duration-300 ease-in-out hover:scale-105]  max-w-[10rem] max-h-[8rem]"
         />
+
       </Link>
 
+      {/* Card content */}
       <div className="card-details text-[13px] p-5">
         <h3 className="font-semibold text-base md:text-lg line-clamp-2">
           {title}
         </h3>
 
-        <div className="flex text-yellow-500 sm:[8px] md:text-[12px] lg:text-[15px] max-lg:text-[17px]">
+          <div className="flex  space-x-2 items-center  mt-2">
+        <div className="flex text-yellow-500 mt-1">
           <AiFillStar />
           <AiFillStar />
           <AiFillStar />
-
         </div>
 
-        <div className="card-price flex space-x-5">
-          <div className="price space-x-1 sm:text-[8px] md:text-[13px] lg:text-[12px] max-lg:text-[15px]">
+        <div className="card-price flex space-x-5 ">
+          <div className="price space-x-1 sm:text-[10px] md:text-[13px]">
             <del>₦{prevPrice}</del>
             <b>₦{newPrice}</b>
           </div>
         </div>
-
-        <button
-          onClick={() => {
-            if (id && title && img && newPrice) {
-              cart.addOneToCart(Number(id), img, title, Number(newPrice));
-            }
-          }}
-          className="bg-yellow-500 text-white p-3 rounded-xl w-full py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-sm hover:shadow-md"
-        >
-          Add to Cart
-        </button>
+        </div>
       </div>
+
+      {/* Add to Cart Button - hidden by default */}
+      <button
+        onClick={() => {
+          if (id && title && img && newPrice) {
+            cart.addOneToCart(Number(id), img, title, Number(newPrice));
+          }
+        }}
+        className="absolute bottom-0 left-0 right-0 bg-yellow-500 text-white py-2 font-medium rounded-b-2xl opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-in-out"
+      >
+        Add to Cart
+      </button>
     </section>
   );
 }

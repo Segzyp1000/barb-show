@@ -35,7 +35,7 @@ const cart = useContext(CartContext) as CartContextType;
   return (
     <div className="fixed top-0 left-0 z-20 w-full bg-white/80 backdrop-blur-md shadow-md">
       <div className="p-3">
-        <div className="flex justify-between items-center px-5">
+        <div className=" container flex justify-between items-center px-5">
           <Link to="/">
             <img
               src={Logo}

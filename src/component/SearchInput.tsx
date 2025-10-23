@@ -4,7 +4,7 @@ import { CartContext } from "../CartContext.js";
 function SearchInput() {
   const { query, handleInputChange } = useContext(CartContext);
   return (
-    <div className="  bg-white mt-[3.7rem] md:mt-[3.7rem] ">
+    <div className=" container bg-white mt-[3.7rem] md:mt-[3.7rem] ">
       <input
         onChange={handleInputChange}
         value={query}
