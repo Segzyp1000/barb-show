@@ -20,7 +20,7 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
   const cart = useContext(CartContext);
 
   return (
-    <section className="group  w-full border-b-2 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden mt-10 relative">
+    <section className="group w-full bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden mt-5 relative">
       {/* Image */}
       <Link
         to={`/details/${title}`}
@@ -33,7 +33,7 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
           loading="lazy"
           width={60}
           height={60}
-          className="w-full h-40 object-contain p-4 transition-transform duration-300 ease-in-out hover:scale-105]  max-w-[10rem] max-h-[8rem]"
+          className="w-full h-fit object-contain p-4 transition-transform duration-300 ease-in-out hover:scale-105]  max-w-[10rem] max-h-[8rem]"
         />
 
       </Link>

@@ -12,13 +12,7 @@ function Color({ handleChange, selectedColor }: ColorProps) {
     <div className="mt-5 text-navColor">
       <div className="font-semibold mb-2">Color</div>
 
-      <Input
-        handleChange={handleChange}
-        value=""
-        title="All"
-        name="color"
-        checked={selectedColor === ""}
-      />
+     
       <Input
         handleChange={handleChange}
         value="black"
