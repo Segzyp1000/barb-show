@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import {
   Route,
-  createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
@@ -18,7 +18,7 @@ import RequireAuth from "./RequireAuth";
 
 
 function App(): JSX.Element {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/" element={<Mainlayer />}>
         <Route index element={<MainPage />} />
