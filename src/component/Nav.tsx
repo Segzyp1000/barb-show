@@ -69,7 +69,7 @@ const cart = useContext(CartContext) as CartContextType;
 
           <Link to="/cart" className="flex items-center relative">
   <FaShoppingCart size={28} className="text-navColor hover:text-gray-900" />
-  <span className="absolute -top-1 -right-4 bg-red-300 text-black font-bold rounded-full w-6 h-6 flex items-center justify-center text-sm border-2 border-white shadow-sm animate-pulse">
+  <span className="absolute -top-1 -right-4 bg-red-500 text-white font-bold rounded-full w-6 h-6 flex items-center justify-center  border-b-red-950 border-white  shadow-lg ">
     {productCount}
   </span>
 </Link>
