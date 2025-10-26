@@ -189,7 +189,7 @@ const Register: React.FC = () => {
               {/* Strength Feedback */}
               {strength && (
                 <p
-                  className={`*:mt-1 text-sm font-semibold ${getStrengthColor()}`}
+                  className={`mt-1 text-sm font-semibold ${getStrengthColor()}`}
                 >
                   Strength: {strength}
                 </p>

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import Logo from "../assets/Logo.png";
 import { auth } from "../config/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -19,7 +20,9 @@ const Signin: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  ``
+  const [showPassword, setShowPassword] = useState(false);
+
+  
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -96,21 +99,33 @@ const Signin: React.FC = () => {
             </div>
 
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="mt-1 w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-800"
-              />
-            </div>
+  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+    Password
+  </label>
+  <div className="relative mt-1">
+    <input
+      type={showPassword ? 'text' : 'password'}
+      id="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      placeholder="••••••••"
+      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-gray-800 pr-10"
+    />
+    <button
+      type="button"
+      className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? (
+        <AiOutlineEyeInvisible className="h-5 w-5" />
+      ) : (
+        <AiOutlineEye className="h-5 w-5" />
+      )}
+    </button>
+  </div>
+</div>
+
+
 
             {/* Error */}
             {error && (
@@ -147,4 +162,4 @@ const Signin: React.FC = () => {
   );
 };
 
-export default Signin;
+export default Signin; 
