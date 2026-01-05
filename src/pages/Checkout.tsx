@@ -39,7 +39,7 @@ const Checkout = () => {
       <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 lg:p-12">
        
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 gap-6 mb-6">
           {/* Name */}
           <div>
             <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="name">
