@@ -33,10 +33,11 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen cart container mx-auto mt-28 px-4 md:px-8 lg:px-16 pb-12">
-      <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 lg:p-12">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-8 text-center">
-          Checkout
+       <h1 className="text-3xl font-bold mb-8 text-gray-800">
+          Checkout Page
         </h1>
+      <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 lg:p-12">
+       
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Name */}
