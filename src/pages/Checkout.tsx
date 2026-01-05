@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { PaystackButton } from "react-paystack";
+import { CartContext } from "../CartContext";
+
 import toast from "react-hot-toast";
 
 const Checkout = () => {
+    const checkout = useContext(CartContext);
+
   const publicKey = "pk_live_8216d72e144ca1e11aaad755ef8158c327288236";
-  const amount = 100000;
+  const amount = checkout.getTotalCost() * 100;
+
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -27,7 +32,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="checkout container mx-auto mt-28 px-4 md:px-8 lg:px-16">
+    <div className="min-h-screen cart container mx-auto mt-28 px-4 md:px-8 lg:px-16 pb-12">
       <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 lg:p-12">
         <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 mb-8 text-center">
           Checkout
@@ -80,7 +85,7 @@ const Checkout = () => {
         {/* Pay Button */}
         <div className="mt-8">
           <PaystackButton
-            className="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md"
+            className="max-w-auto p-7 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md"
             {...componentProps}
           />
         </div>

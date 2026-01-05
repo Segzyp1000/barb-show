@@ -15,7 +15,7 @@ function Nav() {
 
   // Hide Nav on these pages
   if (
-    ["/signin", "/register", "/checkout"].includes(location.pathname)
+    ["/signin", "/register"].includes(location.pathname)
   ) {
     return null;
   }

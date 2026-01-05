@@ -11,8 +11,7 @@ function Footer() {
 
   if (
     location.pathname === "/signin" ||
-    location.pathname === "/register" ||
-    location.pathname === "/checkout"
+    location.pathname === "/register" 
   ) {
     return null;
   }

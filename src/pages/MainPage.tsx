@@ -97,9 +97,9 @@ const MainPage = () => {
   const filteredProducts = getFilteredProducts();
 
   return (
-    <div>
+    <div className="container mx-auto w-full">
       <SearchInput />
-      <div className="flex container w-full">
+      <div className="flex">
         <Sidebar
           onCategoryChange={handleCategoryChange}
           onColorChange={handleColorChange}
