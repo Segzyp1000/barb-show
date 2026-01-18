@@ -1,19 +1,19 @@
 import React, { useState, useContext } from "react";
 import { PaystackButton } from "react-paystack";
 import { CartContext } from "../CartContext";
-
 import toast from "react-hot-toast";
 
 const Checkout = () => {
-    const checkout = useContext(CartContext);
-
+  const checkout = useContext(CartContext);
   const publicKey = "pk_live_8216d72e144ca1e11aaad755ef8158c327288236";
   const amount = checkout.getTotalCost() * 100;
-
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+
+  // Validation function
+  const isFormValid = email !== "" && name !== "" && phone !== "";
 
   const componentProps = {
     email,
@@ -26,27 +26,28 @@ const Checkout = () => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () =>
-      toast.success("✅ Payment successful! Thanks for your purchase."),
+    onSuccess: () => {
+      toast.success("✅ Payment successful! Thanks for your purchase.");
+      // Logic to clear cart could go here
+    },
     onClose: () => toast("⚠ Payment window closed."),
+  };
+
+  const handleValidationClick = () => {
+    if (!isFormValid) {
+      toast.error("Please fill in all fields before proceeding.");
+    }
   };
 
   return (
     <div className="min-h-screen cart container mx-auto mt-28 px-4 md:px-8 lg:px-16 pb-12">
-       <h1 className="text-3xl font-bold mb-8 text-gray-800">
-          Checkout Page
-        </h1>
+      <h1 className="text-3xl font-bold mb-8 text-gray-800">Checkout Page</h1>
       <div className="bg-white shadow-xl rounded-2xl p-6 md:p-10 lg:p-12">
-       
-
         <div className="grid grid-cols-1 gap-6 mb-6">
-          {/* Name */}
+          {/* Name Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="name">
-              Name
-            </label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Name</label>
             <input
-              id="name"
               type="text"
               placeholder="Enter your full name"
               onChange={(e) => setName(e.target.value)}
@@ -54,13 +55,10 @@ const Checkout = () => {
             />
           </div>
 
-          {/* Email */}
+          {/* Email Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="email">
-              Email
-            </label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Email</label>
             <input
-              id="email"
               type="email"
               placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
@@ -68,13 +66,10 @@ const Checkout = () => {
             />
           </div>
 
-          {/* Phone */}
+          {/* Phone Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 mb-2" htmlFor="phone">
-              Phone
-            </label>
+            <label className="block text-sm font-medium text-gray-600 mb-2">Phone</label>
             <input
-              id="phone"
               type="tel"
               placeholder="Enter your phone number"
               onChange={(e) => setPhone(e.target.value)}
@@ -83,12 +78,21 @@ const Checkout = () => {
           </div>
         </div>
 
-        {/* Pay Button */}
-        <div className="mt-8">
-          <PaystackButton
-            className="max-w-auto p-7 bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md"
-            {...componentProps}
-          />
+        {/* Pay Button Logic */}
+        <div className="mt-8" onClick={handleValidationClick}>
+          {isFormValid ? (
+            <PaystackButton
+              className="w-full p-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all shadow-md"
+              {...componentProps}
+            />
+          ) : (
+            <button
+              className="w-full p-4 bg-gray-300 text-gray-500 font-semibold rounded-lg cursor-not-allowed"
+              disabled
+            >
+              Pay Now
+            </button>
+          )}
         </div>
       </div>
     </div>
