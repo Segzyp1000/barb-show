@@ -15,7 +15,7 @@ export default {
         bounce: 'animate-bounce',
       },
       container: {
-       center:"mx-auto px-5 md:px-10 lg:px-15 ",
+       center:"max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem]"
       },
      
     },
