@@ -9,12 +9,10 @@ type CardProps = {
   id?: string | number;
   title?: string;
   img?: string;
-  
+
   newPrice?: number | string;
   prevPrice?: number | string;
 };
-
-
 
 function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
   const cart = useContext(CartContext);
@@ -35,7 +33,6 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
           height={60}
           className="w-full h-fit object-contain p-4  max-w-[10rem] max-h-[7rem]"
         />
-
       </Link>
 
       {/* Card content */}
@@ -44,19 +41,19 @@ function Card({ id, img, title, newPrice, prevPrice }: CardProps) {
           {title}
         </h3>
 
-          <div className="flex  space-x-2 items-center  mt-2">
-        <div className="flex text-yellow-500 mt-1">
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-        </div>
-
-        <div className="card-price flex space-x-5 ">
-          <div className="price space-x-1 sm:text-[10px] md:text-[13px]">
-            <del>₦{prevPrice}</del>
-            <b>₦{newPrice}</b>
+        <div className="flex  space-x-2 items-center  mt-2">
+          <div className="flex text-yellow-500 mt-1">
+            <AiFillStar />
+            <AiFillStar />
+            <AiFillStar />
           </div>
-        </div>
+
+          <div className="card-price flex space-x-5 ">
+            <div className="price space-x-1 sm:text-[10px] md:text-[13px]">
+              <del>₦{prevPrice}</del>
+              <b>₦{newPrice}</b>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import {
   Route,
   createHashRouter,
@@ -20,6 +20,13 @@ import Loader from "./component/Loader";
 
 function App(): JSX.Element {
   const [loading, setLoading] = useState(true);
+
+  const MainPage = lazy(() => import("./pages/MainPage"));
+  const CartPage = lazy(() => import("./pages/CartPage"));
+  const Signin = lazy(() => import("./pages/Signin"));
+  const Register = lazy(() => import("./pages/Register"));
+  const Checkout = lazy(() => import("./pages/Checkout"));
+  const ProductDetails = lazy(() => import("./pages/ProductDetails"));
 
   const router = createHashRouter(
     createRoutesFromElements(
@@ -66,7 +73,9 @@ function App(): JSX.Element {
     <div className="App">
       <AuthProvider>
         <CartProvider>
-          <RouterProvider router={router} />
+          <Suspense fallback={<Loader />}>
+            <RouterProvider router={router} />
+          </Suspense>
         </CartProvider>
       </AuthProvider>
     </div>

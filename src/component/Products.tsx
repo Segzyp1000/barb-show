@@ -1,4 +1,3 @@
-
 type ProductsProps = {
   result: React.ReactNode;
 };
